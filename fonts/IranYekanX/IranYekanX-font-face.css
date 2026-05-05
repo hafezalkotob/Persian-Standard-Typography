@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Project:      Persian Standard Typography
+   File:         IranYekanX-font-face.css
+   Version:      1
+   Description:  Loads the IRANSansX type family — a premium Persian font
+                 licensed from fontiran.com. All weights and formats are
+                 declared here to ensure crisp rendering across browsers.
+   Author:       Parsa Hafezalkotob
+   Last Updated: 2026-05-02
+   ========================================================================== */
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 100;
+	src: url('woff/IranYekanX-Thin.woff') format('woff'),
+		url('woff2/IranYekanX-Thin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 200;
+	src: url('woff/IranYekanX-UltraLight.woff') format('woff'),
+		url('woff2/IranYekanX-UltraLight.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 300;
+	src: url('woff/IranYekanX-Light.woff') format('woff'),
+		url('woff2/IranYekanX-Light.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 500;
+	src: url('woff/IranYekanX-Medium.woff') format('woff'),
+		url('woff2/IranYekanX-Medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 600;
+	src: url('woff/IranYekanX-DemiBold.woff') format('woff'),
+		url('woff2/IranYekanX-DemiBold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 800;
+	src: url('woff/IranYekanX-ExtraBold.woff') format('woff'),
+		url('woff2/IranYekanX-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 900;
+	src: url('woff/IranYekanX-Black.woff') format('woff'),
+		url('woff2/IranYekanX-Black.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 950;
+	src: url('woff/IranYekanX-ExtraBlack.woff') format('woff'),
+		url('woff2/IranYekanX-ExtraBlack.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: 1000;
+	src: url('woff/IranYekanX-Heavy.woff') format('woff'),
+		url('woff2/IranYekanX-Heavy.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: bold;
+	src: url('woff/IranYekanX-Bold.woff') format('woff'),
+		url('woff2/IranYekanX-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: IranYekanX;
+	font-style: normal;
+	font-weight: normal;
+	src: url('woff/IranYekanX-Regular.woff') format('woff'),
+		url('woff2/IranYekanX-Regular.woff2') format('woff2');
+}

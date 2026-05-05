@@ -1,0 +1,347 @@
+/* ==========================================================================
+   Project:      Persian Standard Typography (PST) - Tanle
+   File:         table.css
+   Version:      1.00
+   Description:  Professional responsive table system – base, modifiers,
+                 responsive wrappers, priority columns, and color themes.
+                 All typographic spacing and sizing is derived from the
+                 global tokens defined in typography.css and colors.css.
+                 Load after typography.css and colors.css.
+   Author:       Parsa Hafezalkotob
+   Last Updated: 2026-05-05
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Usage Guide
+   --------------------------------------------------------------------------
+   Add the base class `.table` to any <table> to apply basic styling.
+   Then combine with modifier classes for different visual styles:
+   
+     <table class="table table-striped table-hover">
+       ...
+     </table>
+
+   For responsive behaviour, wrap the <table> in a <div> with one of the
+   responsive wrapper classes:
+
+     <div class="table-responsive">      <!-- horizontal scroll -->
+       <table class="table"> ... </table>
+     </div>
+
+     <div class="table-stacked">        <!-- stack rows on mobile -->
+       <table class="table"> ... </table>
+     </div>
+
+     <div class="table-collapse">       <!-- collapse rows on mobile -->
+       <table class="table"> ... </table>
+     </div>
+
+   Priority column hiding is activated by adding `.table-priority` to the
+   table and marking both <th> and <td> with data-priority:
+
+     <table class="table table-priority">
+       <thead>
+         <tr>
+           <th data-priority="essential">Name</th>
+           <th data-priority="optional">Details</th>
+         </tr>
+       </thead>
+       ...
+     </table>
+
+   Color themes are applied directly to the <table>:
+
+     <table class="table table-primary"> ... </table>
+     <table class="table table-dark">    ... </table>
+     <table class="table table-light">   ... </table>
+   ========================================================================== */
+
+
+/* ==========================================================================
+   00. Table Design Tokens
+   --------------------------------------------------------------------------
+   Overridable table-specific values that rely on the global type scale.
+   ========================================================================== */
+
+:root {
+  --table-header-weight:    var(--weight-demibold);
+  --table-header-size:      inherit;               /* follows parent font size */
+  --table-header-spacing:   0;                     /* no extra letter spacing */
+
+  /* Paddings use the global spacing scale */
+  --table-padding-y:        var(--spacing-sm);     /* 0.5rem */
+  --table-padding-x:        var(--spacing-sm);
+  --table-sm-padding-y:     var(--spacing-xs);     /* ~0.33rem */
+  --table-sm-padding-x:     var(--spacing-xs);
+  --table-lg-padding-y:     var(--spacing-md);     /* 1rem */
+  --table-lg-padding-x:     var(--spacing-md);
+
+  --table-border-radius:    0;                     /* cards in stacked/collapse */
+  --table-caption-size:     var(--font-size-100);  /* 0.75rem */
+  --table-caption-weight:   var(--weight-medium);
+}
+
+
+/* ==========================================================================
+   01. Base Table Styles
+   --------------------------------------------------------------------------
+   .table must be added to <table> elements to apply basic styling.
+   ========================================================================== */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md, 1rem);
+  font-size: 1em;
+  background-color: var(--color-table-bg, transparent);
+}
+
+.table th {
+  text-align: right;
+  font-weight: var(--table-header-weight);
+  font-size: var(--table-header-size);
+  letter-spacing: var(--table-header-spacing);
+  padding: var(--table-padding-y) var(--table-padding-x);
+  border-bottom: 2px solid var(--color-table-border, var(--color-border, #dee2e6));
+  white-space: nowrap;
+  color: var(--color-heading);
+}
+
+.table td {
+  padding: var(--table-padding-y) var(--table-padding-x);
+  border-bottom: 1px solid var(--color-table-border, var(--color-border, #dee2e6));
+  text-align: right;
+}
+
+
+/* ==========================================================================
+   02. Table Modifiers (apply to <table>)
+   --------------------------------------------------------------------------
+   Combine these classes with .table for different visual styles.
+   ========================================================================== */
+
+/* ---------- Striped rows ---------- */
+.table-striped tbody tr:nth-child(odd) {
+  background-color: var(--color-table-stripe, #f8f9fa);
+}
+
+/* ---------- Hover effect ---------- */
+.table-hover tbody tr:hover {
+  background-color: var(--color-table-hover, #f1f3f5);
+}
+
+/* ---------- Bordered (full grid) ---------- */
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid var(--color-table-border, var(--color-border, #dee2e6));
+}
+.table-bordered th {
+  border-bottom-width: 2px;
+}
+
+/* ---------- Borderless ---------- */
+.table-borderless th,
+.table-borderless td {
+  border: none;
+}
+.table-borderless thead th {
+  border-bottom: 2px solid var(--color-table-border, var(--color-border, #dee2e6));
+}
+
+/* ---------- Compact table ---------- */
+.table-sm th,
+.table-sm td {
+  padding-top: var(--table-sm-padding-y);
+  padding-bottom: var(--table-sm-padding-y);
+  padding-left: var(--table-sm-padding-x);
+  padding-right: var(--table-sm-padding-x);
+}
+
+/* ---------- Spacious table ---------- */
+.table-lg th,
+.table-lg td {
+  padding-top: var(--table-lg-padding-y);
+  padding-bottom: var(--table-lg-padding-y);
+  padding-left: var(--table-lg-padding-x);
+  padding-right: var(--table-lg-padding-x);
+}
+
+/* ---------- Caption ---------- */
+caption,
+.table-caption {
+  caption-side: top;
+  text-align: right;
+  font-size: var(--table-caption-size);
+  color: var(--color-table-caption, var(--color-text-muted, #6c757d));
+  margin-bottom: 0.5em;
+  font-weight: var(--table-caption-weight);
+}
+
+
+/* ==========================================================================
+   03. Responsive Wrappers (around the <table>)
+   ========================================================================== */
+
+/* ---------- Simple horizontal scroll ---------- */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  margin-bottom: var(--spacing-md, 1rem);
+}
+
+.table-responsive table {
+  margin-bottom: 0;
+  min-width: 600px;
+}
+
+/* ---------- Stacked rows (labels on right, values on left) ---------- */
+@media screen and (max-width: 600px) {
+  .table-stacked,
+  .table-stacked thead,
+  .table-stacked tbody,
+  .table-stacked th,
+  .table-stacked td,
+  .table-stacked tr {
+    display: block;
+  }
+
+  .table-stacked thead tr {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .table-stacked tbody tr {
+    margin-bottom: 1.2em;
+    border: 1px solid var(--color-table-border, var(--color-border, #dee2e6));
+    border-radius: var(--table-border-radius, 0.5em);
+    padding: 0.75em;
+  }
+
+  .table-stacked td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+    border-bottom: 1px solid var(--color-table-border, var(--color-border, #dee2e6));
+    text-align: left;
+  }
+
+  .table-stacked td:last-child {
+    border-bottom: none;
+  }
+
+  .table-stacked td::before {
+    content: attr(data-title);
+    font-weight: var(--weight-demibold, 600);
+    color: var(--color-heading, #000);
+    text-align: right;
+    margin-left: 1em;
+    flex-shrink: 0;
+  }
+}
+
+/* ---------- Collapse rows (header above each value) ---------- */
+@media screen and (max-width: 600px) {
+  .table-collapse,
+  .table-collapse thead,
+  .table-collapse tbody,
+  .table-collapse th,
+  .table-collapse td,
+  .table-collapse tr {
+    display: block;
+  }
+
+  .table-collapse thead tr {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .table-collapse tbody tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-table-border, var(--color-border, #dee2e6));
+    border-radius: var(--table-border-radius, 0.5em);
+    overflow: hidden;
+  }
+
+  .table-collapse td {
+    padding: 0.6em 0.8em;
+    border-bottom: 1px solid var(--color-table-border, var(--color-border, #dee2e6));
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .table-collapse td:last-child {
+    border-bottom: none;
+  }
+
+  .table-collapse td::before {
+    content: attr(data-title);
+    font-size: 0.8em;
+    font-weight: var(--weight-demibold, 600);
+    color: var(--color-text-muted, #6c757d);
+    margin-bottom: 0.2em;
+  }
+}
+
+
+/* ==========================================================================
+   04. Color Themes (apply to <table>)
+   --------------------------------------------------------------------------
+   These classes change the header background and text color.
+   ========================================================================== */
+
+/* Brand primary header */
+.table-primary thead th {
+  background-color: var(--color-table-primary-header, #fcb735);
+  color: var(--color-table-primary-text, #fff);
+  border-bottom-color: var(--color-table-primary-header, #fcb735);
+}
+
+/* Dark header */
+.table-dark thead th {
+  background-color: var(--color-table-dark-header, #212529);
+  color: var(--color-table-dark-text, #f1f3f5);
+  border-bottom-color: var(--color-table-dark-header, #212529);
+}
+
+/* Light header (explicit neutral) */
+.table-light thead th {
+  background-color: var(--color-table-light-header, #f1f3f5);
+  color: var(--color-table-light-text, #212529);
+  border-bottom-color: var(--color-table-border, #dee2e6);
+}
+
+
+/* ==========================================================================
+   05. Priority Column Hiding
+   --------------------------------------------------------------------------
+   On small screens, hide less important columns marked with data-priority.
+   Use data-priority="essential|secondary|optional" on both th and td.
+   ========================================================================== */
+
+@media screen and (max-width: 600px) {
+  .table-priority th[data-priority="optional"],
+  .table-priority td[data-priority="optional"] {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .table-priority th[data-priority="secondary"],
+  .table-priority td[data-priority="secondary"] {
+    display: none;
+  }
+}
