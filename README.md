@@ -91,11 +91,3 @@ This project is proprietary.
 To use the included fonts, you must hold valid licenses from their respective foundries (e.g., [fontiran.com](https://fontiran.com)).
 
 The CSS, JS, and design tokens are authored by **Parsa Hafezalkotob**.
-
-
-اگر بخواید، در مرحله بعد یک نسخه‌ی **خیلی حرفه‌ای‌تر** هم می‌دم که شامل این‌ها باشه:
-- badges (نسخه، لایسنس، CDN status)
-- Table of Contents خودکار
-- بخش Browser Support
-- Quick Demo / Screenshot section
-- Contributing و Changelog links
