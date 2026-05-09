@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PST Manager Pro\n"
+"POT-Creation-Date: 2026-05-09 16:27+0330\n"
+"PO-Revision-Date: 2026-05-09 16:29+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: pst-manager.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: pst-manager.php:61
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: pst-manager.php:181
+msgid "PST Fonts"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: pst-manager.php:205 pst-manager.php:206 pst-manager.php:219
+msgid "PST Manager"
+msgstr "تایپوگرافی فارسی"
+
+#: pst-manager.php:226
+msgid "CDN Base URL"
+msgstr "نشانی پایه CDN"
+
+#: pst-manager.php:236
+msgid "Required Fonts"
+msgstr "فونت‌های مورد نیاز"
+
+#: pst-manager.php:241
+msgid "IranSansX"
+msgstr "ایران سنس"
+
+#: pst-manager.php:245
+msgid "IranYekanX"
+msgstr "ایران‌ یکان"
+
+#: pst-manager.php:249
+msgid "Abar Low"
+msgstr "اَبَر نازک"
+
+#: pst-manager.php:253
+msgid "Abar Mid"
+msgstr "اَبَر متوسط"
+
+#: pst-manager.php:257
+msgid "Abar High"
+msgstr "اَبَر ضخیم"
+
+#: pst-manager.php:261
+msgid "Vazirmatn"
+msgstr "وزیر متن"
+
+#: pst-manager.php:281
+msgid "Elementor Fonts Injection"
+msgstr "افزودن فونت به المنتور"
+
+#: pst-manager.php:286
+msgid "Add selected fonts to Elementor font list"
+msgstr "افزودن فونت‌های انتخاب شده به لیست فونت‌های المنتور"
+
+#: pst-manager.php:294
+msgid "Primary Font"
+msgstr "فونت اصلی"
+
+#: pst-manager.php:297 pst-manager.php:311
+msgid "None"
+msgstr "هیچکدام"
+
+#: pst-manager.php:308
+msgid "Secondary Font"
+msgstr "فونت دوم"
+
+#: pst-manager.php:323
+msgid "Custom CSS"
+msgstr "استایل سفارشی"
+
+#: pst-manager.php:327
+msgid "Enter your custom CSS here…"
+msgstr ""
+
+#: pst-manager.php:329
+msgid ""
+"This CSS will be loaded after all PST styles and can override any existing "
+"variables or rules."
+msgstr ""
+"این CSS پس از تمام سبک‌های PST بارگذاری می‌شود و می‌تواند هر متغیر یا قانون "
+"موجود را لغو کند."
+
+#: pst-manager.php:334
+msgid "Save Settings"
+msgstr "ذخیره تنظیمات"
+
+#. Description of the plugin/theme
+msgid "Centralized management of Persian Standard Typography"
+msgstr "مدیریت متمرکز فونت‌ها و تایپوگرافی استاندارد فارسی"
+
+#. Author of the plugin/theme
+msgid "Parsa Hafezalkotob"
+msgstr "پارسا حافظ‌الکتب"
+
+#~ msgid "Elementor settings saved."
+#~ msgstr "ذخیره تنظیمات المنتور."
+
+#~ msgid "General"
+#~ msgstr "اصلی"
+
+#~ msgid "Elementor"
+#~ msgstr "المنتور"
+
+#~ msgid "Default (IranSansX)"
+#~ msgstr "پیش‌فرض (ایران‌سنس)"

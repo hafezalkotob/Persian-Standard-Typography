@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نمونه تایپوگرافی فارسی</title>
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    body {
+      background: var(--color-bg-subtle);
+    }
+
+    .container {
+      max-width: 52rem;
+      margin: auto;
+      padding: 3rem 1.25rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+      padding: 1.75rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .demo-row>*+* {
+      margin-top: .6rem;
+    }
+
+    .prose-section {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+
+    /* ===== Theme Toggle Switch ===== */
+    .theme-toggle-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--gray-400);
+      transition: background-color 0.3s ease;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: transform 0.3s ease;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: var(--brand-primary);
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(22px);
+    }
+
+    .theme-toggle-wrapper .theme-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        font-family: initial !important; /* خنثی کردن فونت اجباری */
+    }
+    .theme-toggle-wrapper .theme-icon svg {
+        width: 100%;
+        height: 100%;
+        color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <header style="text-align:center;margin-bottom:4rem">
+      <h1>پیش‌نمایش تایپوگرافی فارسی</h1>
+      <p class="lead">
+        نمایش کامل عناصر تایپوگرافی، رنگ‌ها، جداول و فرم‌ها برای طراحی رابط کاربری فارسی
+      </p>
+
+      <!-- Theme toggle switch -->
+      <div class="theme-toggle-wrapper">
+        <span class="theme-icon">
+          <!-- آیکون ماه -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+        <label class="toggle-switch" for="theme-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-icon">
+          <!-- آیکون خورشید -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         (First) Complete Prose Example – all elements inside .prose
+         ============================================================= -->
+    <section class="section prose-section">
+      <div class="section-label">نمونه کامل پروس (Prose) – مقالهٔ جامع</div>
+
+      <article class="prose">
+        <h1>عنوان اصلی: راهنمای طراحی تایپوگرافی فارسی در وب</h1>
+
+        <p>
+          تایپوگرافی یکی از مهم‌ترین عناصر طراحی واسط کاربری است. انتخاب درست
+          <strong>فونت</strong>، <em>وزن</em>، <mark>هایلایت</mark> و
+          <a href="#">پیوندها</a> می‌تواند تجربهٔ خواندن را دگرگون کند.
+          این یک <small>متن کوچک توضیحی</small> است که در کنار متن اصلی قرار می‌گیرد.
+        </p>
+
+        <p>
+          در ادامه به مفاهیمی مانند <q>نقل‌قول درون‌خطی</q>، فرمول‌های علمی
+          (H<sub>2</sub>O یا x<sup>2</sup>)، ویرایش‌های متنی
+          (<del>حذف‌شده</del>، <ins>اضافه‌شده</ins>، <s>نامعتبر</s>،
+          <u>زیرخط‌دار</u>)، منابع (<cite>کتاب تایپوگرافی مدرن</cite>) و
+          تعاریف (<dfn>تایپوگرافی</dfn> یعنی هنر چینش حروف) می‌پردازیم.
+          همچنین کلیدهای میانبر مانند <kbd>Ctrl</kbd> + <kbd>Z</kbd> و
+          کوته‌نوشت‌ها مانند <abbr title="Cascading Style Sheets">CSS</abbr>
+          و تاریخ <time datetime="2026-05-05">۱۵ اردیبهشت ۱۴۰۵</time> نیز
+          پوشش داده می‌شوند.
+        </p>
+
+        <p>
+          <bdi>متن خنثی 123</bdi> و
+          <bdo dir="ltr">This text is left-to-right</bdo> نیز گاهی در
+          متون چندزبانه استفاده می‌شوند.
+        </p>
+
+        <h2>فصل اول: اهمیت تایپوگرافی</h2>
+        <p>
+          متن بخش بزرگی از رابط کاربری را تشکیل می‌دهد. یک پاراگراف خوب خوانایی را
+          بالا می‌برد. همچنین <code>line-height</code> مناسب در
+          <code>body</code> ضروری است.
+        </p>
+
+        <h3>زیرفصل: فاصلهٔ خطوط</h3>
+        <p>
+          فاصلهٔ خطوط (line-height) یکی از عوامل کلیدی خوانایی است. در زبان فارسی
+          به دلیل حروف دندانه‌دار، فاصلهٔ بیشتر توصیه می‌شود.
+        </p>
+
+        <h4>نمونهٔ لیست‌ها</h4>
+        <ul>
+          <li>انتخاب فونت مناسب</li>
+          <li>تنظیم فاصلهٔ خطوط</li>
+          <li>
+            سلسله‌مراتب عناوین
+            <ul>
+              <li>عنوان اصلی</li>
+              <li>عنوان فرعی</li>
+              <li>
+                پاراگراف‌ها
+                <ul>
+                  <li>متن اصلی</li>
+                  <li>متن کمکی</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <ol>
+          <li>بررسی نیازها</li>
+          <li>انتخاب مقیاس</li>
+          <li>
+            پیاده‌سازی
+            <ol>
+              <li>تعریف CSS</li>
+              <li>تست در مرورگر</li>
+              <li>
+                بهینه‌سازی
+                <ol>
+                  <li>فشرده‌سازی</li>
+                  <li>بررسی دسترسی‌پذیری</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+
+        <dl>
+          <dt>تایپوگرافی</dt>
+          <dd>هنر و تکنیک چینش حروف برای نمایش زبان نوشتاری به شکلی خوانا، روان و زیبا.</dd>
+          <dt>فونت</dt>
+          <dd>مجموعه‌ای از حروف، اعداد و نشانه‌ها با طراحی یکپارچه و وزن‌های مختلف.</dd>
+        </dl>
+
+        <h5>نقل‌قول برجسته</h5>
+        <blockquote>
+          <p>طراحی خوب زمانی اتفاق می‌افتد که کاربر اصلاً متوجه طراحی نشود.</p>
+        </blockquote>
+
+        <h5>نمونهٔ کد</h5>
+        <p>برای نصب بسته از دستور <code>npm install my-package</code> استفاده کنید.</p>
+        <pre><code>function greet(name) {
+  return `سلام ${name}`;
+}</code></pre>
+
+        <h5>تصویر</h5>
+        <figure>
+          <img src="img/placeholder.jpg" alt="نمونه تصویر">
+          <figcaption>شکل ۱: یک تصویر نمونه با زیرنویس</figcaption>
+        </figure>
+
+        <h5>جدول داده‌ها</h5>
+        <div class="table-collapse">
+          <table class="table table-striped table-borderless table-hover">
+            <caption>نرخ ارز امروز</caption>
+            <thead>
+              <tr>
+                <th>ارز</th>
+                <th>قیمت خرید</th>
+                <th>قیمت فروش</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>دلار</td>
+                <td>۵۰,۰۰۰</td>
+                <td>۵۱,۰۰۰</td>
+              </tr>
+              <tr>
+                <td>یورو</td>
+                <td>۵۵,۰۰۰</td>
+                <td>۵۶,۵۰۰</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>بخش جمع‌شونده</h5>
+        <details>
+          <summary>راهنمای بیشتر</summary>
+          <p>این محتوا در حالت عادی پنهان است و با کلیک باز می‌شود.</p>
+        </details>
+
+        <hr>
+
+        <h2>فرم‌ها در متن</h2>
+        <p>
+          در ادامه یک فرم ساده درون محتوای مقاله قرار گرفته است تا استایل
+          عناصر فرم در بستر prose نیز دیده شود.
+        </p>
+
+        <form action="#" method="post" style="margin-top:1.5em;">
+          <fieldset>
+            <legend>اطلاعات کاربری</legend>
+
+            <p>
+              <label for="name">نام:</label><br>
+              <input type="text" id="name" name="name" placeholder="نام خود را وارد کنید" required>
+            </p>
+
+            <p>
+              <label for="email">ایمیل:</label><br>
+              <input type="email" id="email" name="email" placeholder="example@domain.com">
+            </p>
+
+            <p>
+              <label for="password">گذرواژه:</label><br>
+              <input type="password" id="password" name="password" placeholder="حداقل ۸ نویسه">
+            </p>
+
+            <p>
+              <label for="bio">دربارهٔ من:</label><br>
+              <textarea id="bio" name="bio" rows="4" placeholder="چند خط دربارهٔ خودتان بنویسید..."></textarea>
+            </p>
+
+            <p>
+              <label for="gender">جنسیت:</label>
+              <select id="gender" name="gender">
+                <option value="">انتخاب کنید...</option>
+                <option value="male">مرد</option>
+                <option value="female">زن</option>
+                <option value="other">سایر</option>
+              </select>
+            </p>
+
+            <p>
+              <label>
+                <input type="checkbox" name="agree" value="yes" required>
+                با <a href="#">شرایط و قوانین</a> موافقم.
+              </label>
+            </p>
+
+            <p>
+              <button type="submit">ثبت‌نام</button>
+              <button type="reset">بازنشانی</button>
+            </p>
+          </fieldset>
+        </form>
+
+        <h6>جمع‌بندی</h6>
+        <p>
+          یک سیستم تایپوگرافی یکپارچه با کلاس <code>.prose</code>
+          می‌تواند تمام اجزای مقاله را به‌صورت هماهنگ نمایش دهد.
+        </p>
+      </article>
+    </section>
+
+    <!-- ======================
+         Separate examples (outside prose)
+    ======================= -->
+
+    <!-- Headings -->
+    <section class="section">
+      <div class="section-label">Headings (H1 to H6)</div>
+      <div class="demo-row">
+        <h1>بهر خران چه کاه برند چه زعفران</h1>
+        <h2>بهر خران چه کاه برند چه زعفران</h2>
+        <h3>بهر خران چه کاه برند چه زعفران</h3>
+        <h4>بهر خران چه کاه برند چه زعفران</h4>
+        <h5>بهر خران چه کاه برند چه زعفران</h5>
+        <h6>بهر خران چه کاه برند چه زعفران</h6>
+      </div>
+    </section>
+
+    <!-- Paragraph -->
+    <section class="section">
+      <div class="section-label">Paragraph</div>
+      <p>
+        تایپوگرافی در طراحی وب نقش بسیار مهمی در خوانایی و تجربه کاربری دارد.
+        انتخاب فونت مناسب، فاصله خطوط، و اندازه متن می‌تواند تأثیر زیادی در
+        درک محتوا داشته باشد.
+      </p>
+      <p>
+        یک سیستم تایپوگرافی استاندارد کمک می‌کند تا تمام صفحات وب‌سایت
+        هماهنگ، منظم و حرفه‌ای دیده شوند.
+      </p>
+    </section>
+
+    <!-- Inline Elements -->
+    <section class="section">
+      <div class="section-label">Inline Elements</div>
+      <p>
+        می‌توانید از <strong>متن بولد</strong> برای تأکید استفاده کنید،
+        یا بخشی از متن را <em>ایتالیک</em> کنید.
+        همچنین امکان <mark>هایلایت کردن</mark> بخش‌های مهم نیز وجود دارد.
+      </p>
+      <p>
+        برای نمایش کدهای کوتاه از
+        <code>display: flex</code>
+        یا
+        <code>npm install</code>
+        استفاده می‌شود.
+      </p>
+      <p>
+        این یک متن کوچک است
+        <small>که برای توضیحات جانبی، اعتبارسنجی یا نکات حقوقی</small>
+        به کار می‌رود.
+      </p>
+    </section>
+
+    <!-- Extended Inline Elements -->
+    <section class="section">
+      <div class="section-label">Extended Inline Elements</div>
+      <p>نقل‌قول درون‌خطی: <q>طراحی خوب، طراحی نامرئی است</q></p>
+      <p>فرمول شیمیایی: H<sub>2</sub>O و توان ریاضی: x<sup>2</sup> + y<sup>2</sup> = 1</p>
+      <p>
+        متن حذف‌شده: <del>این بخش حذف شده است</del> و
+        متن اضافه‌شده: <ins>این بخش جدید است</ins>.
+      </p>
+      <p>
+        متن نامعتبر: <s>این متن دیگر معتبر نیست</s> و
+        متن زیرخط‌دار: <u>این متن زیرخط دارد</u>.
+      </p>
+      <p>
+        عنوان منبع: <cite>کتاب تایپوگرافی مدرن</cite> –
+        تعریف اصطلاح: <dfn>تایپوگرافی</dfn> یعنی هنر چینش حروف.
+      </p>
+      <p>آدرس تماس:</p>
+      <address>تهران، خیابان ولیعصر، پلاک ۱۲۳۴</address>
+      <p>کلید میانبر: <kbd>Ctrl</kbd> + <kbd>Z</kbd> برای بازگشت به عقب</p>
+      <p>مخفف نویسی: <abbr title="HyperText Markup Language">HTML</abbr> یک زبان نشانه‌گذاری است.</p>
+      <p>تاریخ ماشینی: <time datetime="2026-05-05">۱۵ اردیبهشت ۱۴۰۵</time></p>
+      <p>
+        کنترل جهت متن:
+        <bdi>متن خنثی 123</bdi> و override:
+        <bdo dir="ltr">This text is left-to-right</bdo>
+      </p>
+    </section>
+
+    <!-- Links -->
+    <section class="section">
+      <div class="section-label">Links</div>
+      <p>
+        برای اطلاعات بیشتر می‌توانید به
+        <a href="#">مستندات کامل طراحی تایپوگرافی</a> مراجعه کنید.
+      </p>
+    </section>
+
+    <!-- Lists (Custom) -->
+    <section class="section">
+      <div class="section-label">Lists (Custom)</div>
+      <div class="list-custom">
+        <h4>لیست نامرتب</h4>
+        <ul>
+          <li>طراحی رابط کاربری</li>
+          <li>توسعه فرانت‌اند</li>
+          <li>
+            بهینه‌سازی تجربه کاربری
+            <ul>
+              <li>افزایش سرعت بارگذاری</li>
+              <li>بهبود دسترسی‌پذیری</li>
+              <li>
+                تست کاربردپذیری
+                <ul>
+                  <li>مصاحبه با کاربر</li>
+                  <li>تست A/B</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>توسعه فرانت‌اند</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="list-custom">
+        <h4>لیست مرتب</h4>
+        <ol>
+          <li>تحلیل نیازمندی‌ها</li>
+          <li>طراحی وایرفریم</li>
+          <li>
+            پیاده‌سازی رابط کاربری
+            <ol>
+              <li>HTML اولیه</li>
+              <li>CSS و استایل‌دهی</li>
+              <li>
+                JavaScript
+                <ol>
+                  <li>تعاملات پایه</li>
+                  <li>واکشی داده</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>تست و بهینه‌سازی</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Definition List -->
+    <section class="section">
+      <div class="section-label">Definition List</div>
+      <dl>
+        <dt>تایپوگرافی</dt>
+        <dd>هنر و تکنیک چینش حروف برای نمایش زبان نوشتاری به شکلی خوانا، روان و زیبا.</dd>
+        <dt>فونت</dt>
+        <dd>مجموعه‌ای از حروف، اعداد و نشانه‌ها با طراحی یکپارچه و وزن‌های مختلف.</dd>
+      </dl>
+    </section>
+
+    <!-- Details & Summary -->
+    <section class="section">
+      <div class="section-label">Details / Summary</div>
+      <details>
+        <summary>باز کردن توضیحات بیشتر</summary>
+        <p>اینجا محتوایی قرار می‌گیرد که در حالت پیش‌فرض پنهان است.</p>
+      </details>
+      <details open>
+        <summary>این بخش از ابتدا باز است</summary>
+        <p>می‌توانید با افزودن ویژگی <code>open</code>، جزئیات را به‌طور پیش‌فرض نمایش دهید.</p>
+      </details>
+    </section>
+
+    <!-- Blockquote -->
+    <section class="section">
+      <div class="section-label">Blockquote</div>
+      <blockquote>
+        بهترین تایپوگرافی آن است که دیده نشود؛ فقط خوانده شود.
+      </blockquote>
+    </section>
+
+    <!-- Code Block -->
+    <section class="section">
+      <div class="section-label">Code Block</div>
+      <pre><code>function greet(name) {
+  return `سلام ${name}`;
+}</code></pre>
+    </section>
+
+    <!-- Image & Figure -->
+    <section class="section">
+      <div class="section-label">Image & Figure</div>
+      <figure>
+        <img src="img/placeholder.jpg" alt="نمونه تصویر">
+        <figcaption>نمونه تصویر همراه با زیرنویس</figcaption>
+      </figure>
+    </section>
+
+    <!-- Table -->
+    <section class="section">
+      <div class="section-label">Table</div>
+      <div class="table-stacked">
+        <table class="table table-light">
+          <thead>
+            <tr>
+              <th data-priority="essential">نام</th>
+              <th data-priority="essential">قیمت</th>
+              <th data-priority="secondary">دسته</th>
+              <th data-priority="optional">توضیحات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-priority="essential">هدفون</td>
+              <td data-priority="essential">۱,۲۰۰,۰۰۰</td>
+              <td data-priority="secondary">لوازم جانبی</td>
+              <td data-priority="optional">کیفیت صدای بالا</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <section class="section">
+      <div class="section-label">Divider</div>
+      <p>بخش اول محتوا</p>
+      <hr>
+      <p>بخش دوم محتوا</p>
+    </section>
+
+    <!-- Form Elements -->
+    <section class="section">
+      <div class="section-label">Form Elements</div>
+      <p>نمونه‌ای از یک فرم با انواع فیلدها و دکمه‌ها.</p>
+
+      <form action="#" method="post">
+        <fieldset>
+          <legend>اطلاعات کاربری</legend>
+
+          <p>
+            <label for="name2">نام:</label><br>
+            <input type="text" id="name2" name="name" placeholder="نام خود را وارد کنید" required>
+          </p>
+
+          <p>
+            <label for="email2">ایمیل:</label><br>
+            <input type="email" id="email2" name="email" placeholder="example@domain.com">
+          </p>
+
+          <p>
+            <label for="password2">گذرواژه:</label><br>
+            <input type="password" id="password2" name="password" placeholder="حداقل ۸ نویسه">
+          </p>
+
+          <p>
+            <label for="bio2">دربارهٔ من:</label><br>
+            <textarea id="bio2" name="bio" rows="4" placeholder="چند خط دربارهٔ خودتان بنویسید..."></textarea>
+          </p>
+
+          <p>
+            <label for="gender2">جنسیت:</label>
+            <select id="gender2" name="gender">
+              <option value="">انتخاب کنید...</option>
+              <option value="male">مرد</option>
+              <option value="female">زن</option>
+              <option value="other">سایر</option>
+            </select>
+          </p>
+
+          <p>
+            <label>
+              <input type="checkbox" name="agree" value="yes" required>
+              با <a href="#">شرایط و قوانین</a> موافقم.
+            </label>
+          </p>
+
+          <p>
+            <label>
+              <input type="radio" name="newsletter" value="yes" checked>
+              دریافت خبرنامه
+            </label>
+            <label>
+              <input type="radio" name="newsletter" value="no">
+              عدم دریافت خبرنامه
+            </label>
+          </p>
+
+          <p>
+            <button type="submit">ثبت‌نام</button>
+            <button type="reset">بازنشانی</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

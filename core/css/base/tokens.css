@@ -1,0 +1,456 @@
+/* ==========================================================================
+   Project:      Persian Standard Typography (PST) – Design Tokens
+   File:         tokens.css
+   Version:      1.0.0
+   Description:  Centralised design tokens for colors, typography scale,
+                 spacing, tables, forms, and themes. Edit this file to
+                 rebrand or adjust the entire design system.
+   Author:       Parsa Hafezalkotob
+   Last Updated: 2026-05-09
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. Brand & Utility Colors
+   ========================================================================== */
+:root {
+  /* -- Brand Colors -------------------------------------------------------- */
+  --brand-primary:   #fcb735;
+  --brand-secondary: #40b0bf;
+  --brand-accent:    #175b91;
+  --brand-extra:     #053363;
+
+  /* -- General Utility Colors --------------------------------------------- */
+  --blue:   #0d6efd;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink:   #d63384;
+  --red:    #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green:  #198754;
+  --teal:   #20c997;
+  --cyan:   #0dcaf0;
+
+  /* -- Grayscale Ramp ------------------------------------------------------ */
+  --white: #ffffff;
+  --black: #000000;
+
+  --gray-50:  #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+}
+
+
+/* ==========================================================================
+   02. Automatic Status Colors
+   ========================================================================== */
+:root {
+  --status-success: var(--green);
+  --status-warning: var(--yellow);
+  --status-danger:  var(--red);
+  --status-info:    var(--cyan);
+
+  /* Light backgrounds = mix with white, dark text = mix with black */
+  --color-success-bg:   color-mix(in srgb, var(--status-success) 15%, white);
+  --color-success-text: color-mix(in srgb, var(--status-success) 70%, black);
+
+  --color-warning-bg:   color-mix(in srgb, var(--status-warning) 15%, white);
+  --color-warning-text: color-mix(in srgb, var(--status-warning) 70%, black);
+
+  --color-danger-bg:    color-mix(in srgb, var(--status-danger) 15%, white);
+  --color-danger-text:  color-mix(in srgb, var(--status-danger) 70%, black);
+
+  --color-info-bg:      color-mix(in srgb, var(--status-info) 15%, white);
+  --color-info-text:    color-mix(in srgb, var(--status-info) 70%, black);
+}
+
+
+/* ==========================================================================
+   03. Core UI Tokens
+   ========================================================================== */
+:root {
+  --color-text:           var(--gray-900);
+  --color-text-muted:     var(--gray-600);
+  --color-heading:        var(--gray-900);
+  --color-subheading:     var(--gray-700);
+
+  --color-bg:             var(--white);
+  --color-bg-subtle:      var(--gray-200);
+  --color-surface:        var(--gray-50);
+  --color-surface-alt:    var(--gray-100);
+
+  --color-border:         var(--gray-300);
+  --color-border-strong:  var(--gray-400);
+
+  /* Brand-aware interactions */
+  --color-link:           var(--brand-primary);
+  --color-link-hover:     color-mix(in srgb, var(--brand-primary) 85%, black);
+  --color-focus:          var(--brand-primary);
+
+  /* Selection uses a subtle brand tint */
+  --color-selection-bg:   color-mix(in srgb, var(--brand-primary) 15%, white);
+  --color-selection-text: var(--black);
+}
+
+
+/* ==========================================================================
+   04. Typography – Scale, Weights, Spacing & Semantic Tokens
+   ========================================================================== */
+:root {
+
+  /* -- Font Families -------------------------------------------------------
+   *
+   *    IranSansX
+   *    IranYekanX
+   *    Abar Low | Abar Mid | Abar High
+   *    Vazirmatn
+   *
+   */
+  --font-primary:   'IranSansX', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-secondary: var(--font-primary);
+  --font-code:      'Fira Code', monospace;
+
+  /* -- Text Size Scale ----------------------------------------------------- */
+  --font-size-100: 0.75rem;   /* 12px */
+  --font-size-150: 0.8125rem; /* 13px */
+  --font-size-200: 0.875rem;  /* 14px */
+  --font-size-300: 1rem;      /* 16px */
+  --font-size-400: 1.1875rem; /* 19px */
+  --font-size-500: 1.375rem;  /* 22px */
+  --font-size-600: 1.5625rem; /* 25px */
+  --font-size-700: 1.75rem;   /* 28px */
+  --font-size-800: 2.25rem;   /* 36px */
+
+  /* -- Line Heights -------------------------------------------------------- */
+  --line-height-tight:   1.25;   /* برای عناوین بزرگ یا نمایشی */
+  --line-height-heading: 1.45;   /* پیش‌فرض عناوین */
+  --line-height-body:    1.7;    /* متن اصلی */
+  --line-height-loose:   1.9;    /* محتوای طولانی (prose) */
+
+  /* -- Font Weights -------------------------------------------------------- */
+  --weight-thin:       100;
+  --weight-ultralight: 200;
+  --weight-light:      300;
+  --weight-regular:    400;
+  --weight-medium:     500;
+  --weight-demibold:   600;
+  --weight-bold:       700;
+  --weight-extrabold:  800;
+  --weight-black:      900;
+  --weight-heavy:      1000;
+
+  /* -- Spacing Scale ------------------------------------------------------- */
+  --spacing-unit: 1rem;      /* پایهٔ فاصله‌ها */
+  --spacing-xs: calc(var(--spacing-unit) / 3);
+  --spacing-sm: calc(var(--spacing-unit) / 2);
+  --spacing-md: var(--spacing-unit);
+  --spacing-lg: calc(var(--spacing-unit) * 1.618);   /* نسبت طلایی */
+  --spacing-xl: calc(var(--spacing-lg) * 1.618);     /* نسبت طلایی مضاعف */
+
+  /* -- Content Width ------------------------------------------------------- */
+  --content-max-width: 42rem;   /* عرض بهینه برای خوانایی (۶۵-۷۵ کاراکتر فارسی) */
+
+  /* -- Semantic Tokens ----------------------------------------------------- */
+  --font-display:   var(--font-size-800);
+  --line-display:   var(--line-height-tight);
+  --weight-display: var(--weight-extrabold);
+
+  --font-title:   var(--font-size-700);
+  --line-title:   var(--line-height-heading);
+  --weight-title: var(--weight-demibold);
+
+  --font-h1:   var(--font-size-600);
+  --line-h1:   var(--line-height-heading);
+  --weight-h1: var(--weight-demibold);
+
+  --font-h2:   var(--font-size-500);
+  --line-h2:   var(--line-height-heading);
+  --weight-h2: var(--weight-demibold);
+
+  --font-h3:   var(--font-size-400);
+  --line-h3:   var(--line-height-heading);
+  --weight-h3: var(--weight-medium);
+
+  --font-h4:   var(--font-size-300);
+  --line-h4:   var(--line-height-heading);
+  --weight-h4: var(--weight-medium);
+
+  --font-h5:   var(--font-size-200);
+  --line-h5:   var(--line-height-heading);
+  --weight-h5: var(--weight-medium);
+
+  --font-h6:   var(--font-size-150);
+  --line-h6:   var(--line-height-heading);
+  --weight-h6: var(--weight-medium);
+
+  --font-body:   var(--font-size-300);
+  --line-body:   var(--line-height-body);
+  --weight-body: var(--weight-regular);
+
+  --font-body-small:   var(--font-size-200);
+  --line-body-small:   var(--line-height-body);
+  --weight-body-small: var(--weight-regular);
+
+  --font-caption:   var(--font-size-100);
+  --line-caption:   var(--line-height-body);
+  --weight-caption: var(--weight-regular);
+}
+
+
+/* ==========================================================================
+   05. Typography Colors (Bullet, Quote, Code, Mark, etc.)
+   ========================================================================== */
+:root {
+  --color-bullet:         var(--gray-700);
+  --color-figcaption:     var(--gray-600);
+  --color-quote:          var(--gray-700);
+  --color-quote-border:   var(--gray-300);
+  --color-hr:             var(--gray-300);
+
+  /* Code & pre */
+  --color-code-text:      var(--pink);
+  --color-code-bg:        var(--gray-100);
+  --color-pre-bg:         var(--gray-100);
+  --color-pre-border:     var(--gray-300);
+
+  /* Keyboard & abbreviation */
+  --color-kbd-text:       var(--gray-100);
+  --color-kbd-bg:         var(--gray-800);
+
+  --color-mark-text:      var(--black);
+  --color-mark-bg:        #fff3cd;
+
+  --color-abbr-border:    var(--gray-400);
+}
+
+
+/* ==========================================================================
+   06. Table Tokens
+   ========================================================================== */
+:root {
+  --table-header-weight:    var(--weight-demibold);
+  --table-header-size:      inherit;               /* follows parent font size */
+  --table-header-spacing:   0;                     /* no extra letter spacing */
+
+  /* Paddings use the global spacing scale */
+  --table-padding-y:        var(--spacing-sm);     /* 0.5rem */
+  --table-padding-x:        var(--spacing-sm);
+  --table-sm-padding-y:     var(--spacing-xs);     /* ~0.33rem */
+  --table-sm-padding-x:     var(--spacing-xs);
+  --table-lg-padding-y:     var(--spacing-md);     /* 1rem */
+  --table-lg-padding-x:     var(--spacing-md);
+
+  --table-border-radius:    0;                     /* cards in stacked/collapse */
+  --table-caption-size:     var(--font-size-100);  /* 0.75rem */
+  --table-caption-weight:   var(--weight-medium);
+
+  --color-table-header-bg:      var(--color-bg-subtle);
+  --color-table-header-text:    var(--color-heading);
+  --color-table-stripe:         color-mix(in srgb, var(--color-bg) 95%, var(--color-bg-subtle));
+  --color-table-hover:          var(--color-bg-subtle);
+  --color-table-border:         var(--color-border);
+  --color-table-caption:        var(--color-text-muted);
+
+  --color-table-bg:             var(--white);
+  --color-table-primary-header: var(--brand-primary);
+  --color-table-primary-text:   #ffffff;
+  --color-table-dark-header:    var(--gray-900);
+  --color-table-dark-text:      var(--gray-100);
+  --color-table-light-header:   var(--gray-100);
+  --color-table-light-text:     var(--gray-900);
+}
+
+
+/* ==========================================================================
+   07. Form Tokens
+   ========================================================================== */
+:root {
+  --form-input-padding-y:     var(--spacing-sm);    /* 0.5rem */
+  --form-input-padding-x:     var(--spacing-sm);
+  --form-input-font-size:     var(--font-size-300); /* 1rem    */
+  --form-input-line-height:   var(--line-height-body);
+  --form-input-border-radius: 0.4em;
+
+  --form-label-font-size:     var(--font-size-200); /* 0.875rem */
+  --form-label-weight:        var(--weight-medium);
+  --form-label-margin-bottom: var(--spacing-xs);
+
+  --form-legend-font-size:    var(--font-size-400);
+  --form-legend-weight:       var(--weight-demibold);
+
+  --form-text-font-size:      var(--font-size-100); /* 0.75rem */
+  --form-text-margin-top:     var(--spacing-xs);
+
+  --btn-padding-y:            var(--spacing-sm);
+  --btn-padding-x:            var(--spacing-md);
+  --btn-font-size:            var(--font-size-300);
+  --btn-font-weight:          var(--weight-medium);
+  --btn-border-radius:        var(--form-input-border-radius);
+
+  --btn-sm-padding-y:         var(--spacing-xs);
+  --btn-sm-padding-x:         var(--spacing-sm);
+  --btn-sm-font-size:         var(--font-size-200);
+
+  --btn-lg-padding-y:         var(--spacing-md);
+  --btn-lg-padding-x:         var(--spacing-lg);
+  --btn-lg-font-size:         var(--font-size-400);
+}
+
+
+/* ==========================================================================
+   08. Dark Theme (explicit)
+   ========================================================================== */
+[data-theme="dark"],
+.theme-dark {
+  /* Core surfaces */
+  --color-text:           var(--gray-100);
+  --color-text-muted:     var(--gray-500);
+  --color-heading:        var(--white);
+  --color-subheading:     var(--gray-300);
+
+  --color-bg:             #0f1115;
+  --color-bg-subtle:      #151922;
+  --color-surface:        #151922;
+  --color-surface-alt:    #1b2230;
+
+  --color-border:         #2a3140;
+  --color-border-strong:  #3a4254;
+
+  /* Brand interactions lighten for dark mode */
+  --color-link:           color-mix(in srgb, var(--brand-primary) 75%, white);
+  --color-link-hover:     color-mix(in srgb, var(--brand-primary) 55%, white);
+  --color-focus:          var(--color-link);
+
+  --color-selection-bg:   color-mix(in srgb, var(--brand-primary) 30%, #0f1115);
+  --color-selection-text: var(--white);
+
+  /* Typography tokens */
+  --color-bullet:         var(--gray-400);
+  --color-figcaption:     var(--gray-500);
+  --color-quote:          var(--gray-300);
+  --color-quote-border:   #2a3140;
+  --color-hr:             #2a3140;
+
+  --color-code-text:      #ff9bd1;
+  --color-code-bg:        #1a2130;
+  --color-pre-bg:         #141a25;
+  --color-pre-border:     #2a3140;
+
+  --color-kbd-text:       var(--gray-100);
+  --color-kbd-bg:         #2a3140;
+
+  --color-mark-text:      var(--black);
+  --color-mark-bg:        #ffd966;
+
+  --color-abbr-border:    #3a4254;
+
+  /* Status colors on dark backgrounds */
+  --color-success-bg:     color-mix(in srgb, var(--status-success) 25%, #0f1115);
+  --color-success-text:   color-mix(in srgb, var(--status-success) 70%, white);
+
+  --color-warning-bg:     color-mix(in srgb, var(--status-warning) 25%, #0f1115);
+  --color-warning-text:   color-mix(in srgb, var(--status-warning) 70%, white);
+
+  --color-danger-bg:      color-mix(in srgb, var(--status-danger) 25%, #0f1115);
+  --color-danger-text:    color-mix(in srgb, var(--status-danger) 70%, white);
+
+  --color-info-bg:        color-mix(in srgb, var(--status-info) 25%, #0f1115);
+  --color-info-text:      color-mix(in srgb, var(--status-info) 70%, white);
+
+  /* Table tokens */
+  --color-table-header-bg:      var(--color-surface-alt);
+  --color-table-stripe:         color-mix(in srgb, var(--color-bg) 70%, var(--color-surface-alt));
+  --color-table-hover:          var(--color-surface-alt);
+  --color-table-border:         var(--color-border);
+  --color-table-caption:        var(--color-text-muted);
+
+  --color-table-bg:             #1b2230;
+  --color-table-primary-header: var(--brand-primary);
+  --color-table-primary-text:   #1b2230;
+  --color-table-dark-header:    #0f1115;
+  --color-table-dark-text:      var(--gray-100);
+  --color-table-light-header:   #2a3140;
+  --color-table-light-text:     var(--gray-100);
+}
+
+
+/* ==========================================================================
+   09. Automatic Dark Fallback
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-text:           var(--gray-100);
+    --color-text-muted:     var(--gray-500);
+    --color-heading:        var(--white);
+    --color-subheading:     var(--gray-300);
+
+    --color-bg:             #0f1115;
+    --color-bg-subtle:      #151922;
+    --color-surface:        #151922;
+    --color-surface-alt:    #1b2230;
+
+    --color-border:         #2a3140;
+    --color-border-strong:  #3a4254;
+
+    --color-link:           color-mix(in srgb, var(--brand-primary) 75%, white);
+    --color-link-hover:     color-mix(in srgb, var(--brand-primary) 55%, white);
+    --color-focus:          var(--color-link);
+
+    --color-selection-bg:   color-mix(in srgb, var(--brand-primary) 30%, #0f1115);
+    --color-selection-text: var(--white);
+
+    --color-bullet:         var(--gray-400);
+    --color-figcaption:     var(--gray-500);
+    --color-quote:          var(--gray-300);
+    --color-quote-border:   #2a3140;
+    --color-hr:             #2a3140;
+
+    --color-code-text:      #ff9bd1;
+    --color-code-bg:        #1a2130;
+    --color-pre-bg:         #141a25;
+    --color-pre-border:     #2a3140;
+
+    --color-kbd-text:       var(--gray-100);
+    --color-kbd-bg:         #2a3140;
+
+    --color-mark-text:      var(--black);
+    --color-mark-bg:        #ffd966;
+
+    --color-abbr-border:    #3a4254;
+
+    --color-success-bg:     color-mix(in srgb, var(--status-success) 25%, #0f1115);
+    --color-success-text:   color-mix(in srgb, var(--status-success) 70%, white);
+
+    --color-warning-bg:     color-mix(in srgb, var(--status-warning) 25%, #0f1115);
+    --color-warning-text:   color-mix(in srgb, var(--status-warning) 70%, white);
+
+    --color-danger-bg:      color-mix(in srgb, var(--status-danger) 25%, #0f1115);
+    --color-danger-text:    color-mix(in srgb, var(--status-danger) 70%, white);
+
+    --color-info-bg:        color-mix(in srgb, var(--status-info) 25%, #0f1115);
+    --color-info-text:      color-mix(in srgb, var(--status-info) 70%, white);
+
+    /* Table tokens */
+    --color-table-header-bg:      var(--color-surface-alt);
+    --color-table-stripe:         color-mix(in srgb, var(--color-bg) 70%, var(--color-surface-alt));
+    --color-table-hover:          var(--color-surface-alt);
+    --color-table-border:         var(--color-border);
+    --color-table-caption:        var(--color-text-muted);
+
+    --color-table-bg:             #1b2230;
+    --color-table-primary-header: var(--brand-primary);
+    --color-table-primary-text:   #1b2230;
+    --color-table-dark-header:    #0f1115;
+    --color-table-dark-text:      var(--gray-100);
+    --color-table-light-header:   #2a3140;
+    --color-table-light-text:     var(--gray-100);
+  }
+}

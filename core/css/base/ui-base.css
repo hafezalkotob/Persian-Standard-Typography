@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Project:      Persian Standard Typography (PST) - UI Base
+   File:         ui-base.css
+   Version:      1.0.0
+   Description:  General UI overrides that are not typography (scrollbar, etc.)
+                 Load after reset.css and before typography.css.
+   Author:       Parsa Hafezalkotob
+   Last Updated: 2026-05-09
+   ========================================================================== */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text-muted, #6c757d) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+  display: block;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--color-text-muted, #6c757d);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+[data-theme="dark"] html::-webkit-scrollbar-thumb,
+.theme-dark html::-webkit-scrollbar-thumb {
+  background-color: var(--gray-500, #adb5bd);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) html::-webkit-scrollbar-thumb {
+    background-color: var(--gray-500, #adb5bd);
+  }
+}

@@ -1,0 +1,564 @@
+/* ==========================================================================
+   Project:      Persian Standard Typography (PST)
+   File:         typography.css
+   Version:      1.0.0
+   Description:  Core typographic styles, vertical rhythm, UI + Prose handling.
+                 All design tokens are now imported from tokens.css.
+   Author:       Parsa Hafezalkotob
+   Last Updated: 2026-05-09
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. Global Reset & Base
+   ========================================================================== */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-body);
+  line-height: var(--line-body);
+  font-weight: var(--weight-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  font-feature-settings: "kern" on, "liga" on, "calt" on, "ss01" on;
+  -moz-font-feature-settings: "kern" on, "liga" on, "calt" on, "ss01" on;
+  -webkit-font-feature-settings: "kern" on, "liga" on, "calt" on, "ss01" on;
+}
+
+
+/* ==========================================================================
+   02. Typographic Blocks
+   --------------------------------------------------------------------------
+   Headings, paragraphs, lists, blockquote, pre, figure, details, hr.
+   ========================================================================== */
+
+/* -- Headings -------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-secondary);
+  margin-block-start: 0;
+  color: var(--color-heading);
+}
+
+h1, .h1 { margin-block-end: 0.9em; }
+h2, .h2 { margin-block-end: 0.85em; }
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 { margin-block-end: 0.75em; }
+
+h1, .h1 { font-size: var(--font-h1); line-height: var(--line-h1); font-weight: var(--weight-h1); }
+h2, .h2 { font-size: var(--font-h2); line-height: var(--line-h2); font-weight: var(--weight-h2); }
+h3, .h3 { font-size: var(--font-h3); line-height: var(--line-h3); font-weight: var(--weight-h3); }
+h4, .h4 { font-size: var(--font-h4); line-height: var(--line-h4); font-weight: var(--weight-h4); }
+h5, .h5 { font-size: var(--font-h5); line-height: var(--line-h5); font-weight: var(--weight-h5); }
+h6, .h6 { font-size: var(--font-h6); line-height: var(--line-h6); font-weight: var(--weight-h6); }
+
+/* -- Paragraphs ------------------------------------------------------------ */
+p {
+  margin-block: 0 var(--spacing-md);
+}
+
+/* -- Lists ----------------------------------------------------------------- */
+.list-default ul {
+  list-style: disc;
+  padding-inline-start: 1.25em;
+}
+.list-default ol {
+  list-style: decimal;
+  padding-inline-start: 1.5em;
+}
+
+.list-custom ul,
+.list-custom ol { padding-inline: 0; }
+
+.list-custom ul li,
+.list-custom ol li {
+  position: relative;
+  padding-inline-start: 1.25em;
+}
+
+/* Unordered: level 1 (filled circle) */
+.list-custom ul li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  inset-inline-start: 0;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 999px;
+  background-color: var(--color-bullet);
+}
+
+/* Unordered: level 2 (outline circle) */
+.list-custom ul ul { margin-block: 0.5em; }
+.list-custom ul ul li::before {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: transparent;
+  box-shadow: 0 0 0 1px var(--color-bullet);
+}
+
+/* Unordered: level 3 (horizontal dash) */
+.list-custom ul ul ul li::before {
+  top: 0.77em;
+  width: 0.6em;
+  height: 0.06em;
+  border-radius: 0px;
+  background-color: var(--color-bullet);
+}
+
+/* Ordered: level 1 (decimal) */
+.list-custom ol { counter-reset: list-custom-ol; }
+.list-custom ol li { counter-increment: list-custom-ol; }
+.list-custom ol li::before {
+  content: counter(list-custom-ol) ".";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.1em;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+  font-size: 0.9em;
+  color: var(--color-bullet);
+}
+
+/* Ordered: level 2 (lower-alpha) */
+.list-custom ol ol {
+  counter-reset: list-custom-ol-l2;
+  margin-block: 0.5em;
+}
+.list-custom ol ol li { counter-increment: list-custom-ol-l2; }
+.list-custom ol ol li::before {
+  content: counter(list-custom-ol-l2, lower-alpha) ")";
+}
+
+/* Ordered: level 3 (lower-roman) */
+.list-custom ol ol ol { counter-reset: list-custom-ol-l3; }
+.list-custom ol ol ol li { counter-increment: list-custom-ol-l3; }
+.list-custom ol ol ol li::before {
+  content: counter(list-custom-ol-l3, lower-roman) ".";
+}
+
+/* Spacing between sibling list items */
+.list-custom li + li { margin-block-start: var(--spacing-xs); }
+
+/* Definition list */
+dl {
+  margin: var(--spacing-md) 0;
+}
+dt {
+  font-weight: var(--weight-demibold);
+  margin-top: var(--spacing-sm);
+}
+dd {
+  margin-inline-start: var(--spacing-md);
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-secondary);
+}
+
+/* -- Blockquote ------------------------------------------------------------ */
+blockquote {
+  padding-inline-start: 1em;
+  border-inline-start: 3px solid var(--color-quote-border);
+  font-style: italic;
+  line-height: var(--line-height-loose);
+  color: var(--color-quote);
+  opacity: 0.9;
+}
+
+/* -- Preformatted & Code Blocks -------------------------------------------- */
+pre {
+  background-color: var(--color-pre-bg);
+  border: 1px solid var(--color-pre-border);
+  padding: var(--spacing-md);
+  border-radius: 0.5em;
+  overflow-x: auto;
+  margin-block: var(--spacing-md);
+  direction: ltr;
+  text-align: left;
+}
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* -- Figure & Figcaption --------------------------------------------------- */
+figure {
+  margin-block: var(--spacing-lg);
+  max-width: 100%;
+}
+figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  border: 1px solid var(--color-border);
+}
+figcaption {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-caption);
+  color: var(--color-figcaption);
+  text-align: center;
+}
+
+/* -- Details / Summary (accordion) ----------------------------------------- */
+details {
+  margin: var(--spacing-md) 0;
+  border: 1px solid var(--color-border);
+  border-radius: 0.4em;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+summary {
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  list-style: none;             /* حذف مثلث پیش‌فرض مرورگر */
+  margin: calc(-1 * var(--spacing-sm)) calc(-1 * var(--spacing-md));
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 0.4em;
+  transition: background-color 0.15s ease;
+}
+summary:hover {
+  background-color: var(--color-bg-subtle);
+}
+details[open] summary {
+  border-bottom: 1px solid var(--color-border);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* -- Horizontal Rule ------------------------------------------------------- */
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--color-hr);
+  margin-block: var(--spacing-xl);
+}
+
+
+/* ==========================================================================
+   03. Inline Semantics
+   ========================================================================== */
+strong, b { font-weight: var(--weight-bold); }
+em, i { font-style: italic; }
+
+mark {
+  color: var(--color-mark-text);
+  background: var(--color-mark-bg);
+  padding: 0 .1em;
+  border-radius: .15em;
+}
+
+small {
+  font-size: var(--font-caption);
+  line-height: var(--line-caption);
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Inline code */
+code {
+  font-family: var(--font-code);
+  color: var(--color-code-text);
+  background-color: var(--color-code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.9em;
+  direction: ltr;
+}
+
+kbd {
+  font-family: var(--font-code);
+  color: var(--color-kbd-text);
+  background: var(--color-kbd-bg);
+  padding: 0.1em 0.4em;
+  border-radius: 0.35em;
+  font-size: 0.9em;
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-abbr-border);
+  cursor: help;
+}
+
+/* Inline quote with Persian guillemets */
+q {
+  quotes: "«" "»" "‹" "›";
+}
+q::before {
+  content: open-quote;
+}
+q::after {
+  content: close-quote;
+}
+
+/* Subscript & superscript */
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 1;
+  position: relative;
+  vertical-align: baseline;
+}
+sub { vertical-align: sub; }
+sup { vertical-align: super; }
+
+/* Editorial marks */
+ins {
+  text-decoration: underline;
+  color: var(--color-success-text);
+}
+del,
+s {
+  text-decoration: line-through;
+  color: var(--color-danger-text);
+}
+u {
+  text-decoration: underline;
+}
+
+/* Citation, definition, address */
+cite,
+dfn {
+  font-style: italic;
+}
+address {
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+/* Bi-directional text control */
+bdi,
+bdo {
+  unicode-bidi: isolate;
+}
+bdo[dir="ltr"] {
+  direction: ltr;
+}
+bdo[dir="rtl"] {
+  direction: rtl;
+}
+
+/* Time element */
+time {
+  color: var(--color-text-muted);
+  font-feature-settings: "tnum" 1;   /* tabular numbers */
+}
+
+
+/* ==========================================================================
+   04. Prose Context (Long-form Content)
+   ========================================================================== */
+.prose {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Vertical rhythm (owl selector) */
+:where(.prose) > * + * { margin-block-start: 1.4em; }
+
+/* Headings inside prose */
+.prose h1, .prose h2, .prose h3 {
+  margin-block-start: 2em;
+  margin-block-end: 0.75em;
+}
+.prose h4, .prose h5, .prose h6 {
+  margin-block-start: 1.6em;
+  margin-block-end: 0.5em;
+}
+
+/* Paragraphs */
+.prose p {
+  margin: 0;
+  line-height: var(--line-height-loose);
+}
+
+/* Links */
+.prose a {
+  color: var(--color-link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.prose a:hover {
+  color: var(--color-link-hover);
+  border-bottom-color: currentColor;
+}
+
+/* Lists – same style as .list-custom but scoped to .prose */
+:where(.prose) > ul,
+:where(.prose) > ol { padding-inline-start: 0; }
+
+.prose ul li {
+  position: relative;
+  padding-inline-start: 1.25em;
+}
+.prose ul li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  inset-inline-start: 0;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 999px;
+  background-color: var(--color-bullet);
+}
+.prose ul ul { margin-block: 0.5em; }
+.prose ul ul li::before {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: transparent;
+  box-shadow: 0 0 0 1px var(--color-bullet);
+}
+.prose ul ul ul li::before {
+  top: 0.77em;
+  width: 0.6em;
+  height: 0.06em;
+  border-radius: 0px;
+  background-color: var(--color-bullet);
+}
+
+.prose ol { counter-reset: prose-ol; }
+.prose ol li {
+  position: relative;
+  padding-inline-start: 1.25em;
+  counter-increment: prose-ol;
+}
+.prose ol li::before {
+  content: counter(prose-ol) ".";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.1em;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+  font-size: 0.9em;
+  color: var(--color-bullet);
+}
+.prose ol ol {
+  counter-reset: prose-ol-l2;
+  margin-block: 0.5em;
+}
+.prose ol ol li { counter-increment: prose-ol-l2; }
+.prose ol ol li::before {
+  content: counter(prose-ol-l2, lower-alpha) ")";
+}
+.prose ol ol ol { counter-reset: prose-ol-l3; }
+.prose ol ol ol li { counter-increment: prose-ol-l3; }
+.prose ol ol ol li::before {
+  content: counter(prose-ol-l3, lower-roman) ".";
+}
+.prose li + li { margin-block-start: var(--spacing-xs); }
+
+/* Blockquote */
+.prose blockquote {
+  margin-inline: 0;
+  line-height: var(--line-height-loose);
+}
+
+/* Images */
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inline code */
+.prose code {
+  color: var(--color-code-text);
+  background: var(--color-code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+
+/* ==========================================================================
+   05. Utilities
+   ========================================================================== */
+.text-xs  { font-size: var(--font-size-100); }
+.text-sm  { font-size: var(--font-size-200); }
+.text-md  { font-size: var(--font-size-300); }
+.text-lg  { font-size: var(--font-size-400); }
+.text-xl  { font-size: var(--font-size-500); }
+.text-2xl { font-size: var(--font-size-600); }
+.text-3xl { font-size: var(--font-size-700); }
+.text-4xl { font-size: var(--font-size-800); }
+.text-thin        { font-weight: var(--weight-thin); }
+.text-ultralight  { font-weight: var(--weight-ultralight); }
+.text-light       { font-weight: var(--weight-light); }
+.text-regular     { font-weight: var(--weight-regular); }
+.text-medium      { font-weight: var(--weight-medium); }
+.text-demibold    { font-weight: var(--weight-demibold); }
+.text-bold        { font-weight: var(--weight-bold); }
+.text-extrabold   { font-weight: var(--weight-extrabold); }
+.text-black       { font-weight: var(--weight-black); }
+.display { font-size: var(--font-display); line-height: var(--line-display); font-weight: var(--weight-display); }
+.title   { font-size: var(--font-title);   line-height: var(--line-title);   font-weight: var(--weight-title); }
+.text-right  { text-align: right; }
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.lead { font-size: var(--font-size-400); font-weight: var(--weight-light); color: var(--color-text-muted); margin-block-end: var(--spacing-lg); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+
+
+/* ==========================================================================
+   06. Responsive (Mobile)
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+  :root {
+    --font-size-800: 2rem;
+    --font-size-700: 1.75rem;
+    --font-size-600: 1.5rem;
+    --font-size-500: 1.375rem;
+    --font-size-400: 1.1875rem;
+    --font-size-300: 1rem;
+    --font-size-200: 0.9375rem;
+    --font-size-150: 0.8125rem;
+    --font-size-100: 0.75rem;
+    --spacing-lg: 1.4rem;
+    --spacing-xl: 2rem;
+  }
+
+  blockquote {
+    padding-inline-start: 0.8em;
+    border-inline-start-width: 2px;
+    font-size: 0.95rem;
+  }
+  pre { padding: var(--spacing-sm); border-radius: 0.4em; }
+  figure { margin-block: var(--spacing-md); }
+  th, td { padding: 0.5em 0.35em; font-size: 0.9em; }
+  details { padding: var(--spacing-xs) var(--spacing-sm); }
+  summary { padding: var(--spacing-xs) var(--spacing-sm); margin: calc(-1 * var(--spacing-xs)) calc(-1 * var(--spacing-sm)); }
+}
+
+
+/* ==========================================================================
+   07. Print
+   ========================================================================== */
+@media print {
+  body { background: white !important; color: black !important; font-size: 12pt; line-height: 1.5; }
+  *, *::before, *::after { color: black !important; background: transparent !important; box-shadow: none !important; text-shadow: none !important; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+  nav, footer, .no-print, .theme-toggle-wrapper, button, input, select, textarea { display: none !important; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  img { max-width: 100% !important; page-break-inside: avoid; }
+  table { page-break-inside: avoid; }
+  h1, h2, h3, h4, h5, h6 { page-break-after: avoid; break-inside: avoid; }
+  .content-wrapper, .prose { max-width: 100% !important; padding: 0 !important; margin: 0 auto !important; }
+}

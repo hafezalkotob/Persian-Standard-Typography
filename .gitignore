@@ -1,0 +1,13 @@
+# Fonts and images (large file size)
+core/fonts/
+core/img/
+
+# Output: build-cdn.js (auto-generated, no versioning needed)
+core/dist/
+
+# Visual Studio workspace file (personal)
+pst.code-workspace
+
+# System files
+.DS_Store
+Thumbs.db

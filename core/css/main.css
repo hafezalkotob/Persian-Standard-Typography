@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Project:      Persian Standard Typography (PST) – Main Entry
+   File:         main.css
+   Version:      1.0.0
+   Description:  Single entry point that imports all modules in the correct
+                 order. Use just this one <link> in your projects.
+   Author:       Parsa Hafezalkotob
+   Last Updated: 2026-05-09
+   ========================================================================== */
+
+/* -- Font Faces -- */
+@import url('../fonts/IranSansX/font-face.css');
+@import url('../fonts/IranYekanX/font-face.css');
+@import url('../fonts/Abar/font-face.css');
+@import url('../fonts/Vazirmatn/font-face.css');
+
+/* -- Base layer -- */
+@import url('base/reset.css');
+@import url('base/ui-base.css');
+@import url('base/tokens.css');
+@import url('base/typography.css');
+
+/* -- Components -- */
+@import url('components/table.css');
+@import url('components/forms.css');
