@@ -40,6 +40,9 @@ PST **از پایه برای خط فارسی** ساخته شده است؛ با �
 این خط را به بخش `<head>` صفحه اضافه کنید:
 ```html
 <link rel="stylesheet" href="https://cdn.cdoc.ir/pst/css/main.css">
+```
+
+---
 
 ### ۲) از طریق افزونهٔ WordPress
 
