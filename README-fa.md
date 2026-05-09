@@ -56,7 +56,7 @@ PST **از پایه برای خط فارسی** ساخته شده است؛ با �
 
 ## ساختار پروژه
 
-text
+```
 PST/
 ├── core/                   # هستهٔ سیستم طراحی (آماده برای CDN)
 │   ├── css/
@@ -70,6 +70,7 @@ PST/
 ├── wordpress-plugin/       # افزونهٔ PST Manager برای WordPress
 │   └── pst-manager/
 └── README.md
+```
 
 ---
 
@@ -77,13 +78,15 @@ PST/
 
 برای تولید نسخهٔ CDN با مسیرهای مطلق، اسکریپت build را اجرا کنید:
 
-bash
+```bash
 node build-cdn.js
+```
 
 خروجی در مسیر زیر ساخته می‌شود:
 
-text
+```text
 core/dist/cdn/
+```
 
 این پوشه را روی CDN خود بارگذاری کنید.
 
