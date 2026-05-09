@@ -1,4 +1,3 @@
-```markdown
 # Persian Standard Typography (PST)
 
 A clean, modern, and fully Persian-first typography system for the web.  
