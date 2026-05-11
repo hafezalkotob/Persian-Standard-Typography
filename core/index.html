@@ -112,6 +112,179 @@
         height: 100%;
         color: inherit;
     }
+
+    /* ==========================================
+       Theme Switch – Style #1 (pst-ts1)
+    ========================================== */
+    .pst-ts1 {
+      --ts1-scale: 1.5; /* Switch resize */
+      --ts1-hue: 223;
+      --ts1-trans-dur: 0.4s;
+      --ts1-trans-timing: cubic-bezier(0.65, 0, 0.35, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .pst-ts1 .switch,
+    .pst-ts1 .switch__input {
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .pst-ts1 .switch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(var(--ts1-scale));
+      transform-origin: center center;
+      font-size: inherit !important;
+      margin: 0 !important;
+    }
+
+    .pst-ts1 .switch__input,
+    .pst-ts1 .switch__input:before {
+      background-color: hsl(var(--ts1-hue), 10%, 10%);
+    }
+
+    .pst-ts1 .switch__input {
+      border-radius: 0.75em;
+      cursor: pointer;
+      display: block;
+      width: 3em;
+      height: 1.5em;
+      transition: background-color var(--ts1-trans-dur) var(--ts1-trans-timing);
+      -webkit-appearance: none;
+      appearance: none;
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .pst-ts1 .switch__input:before {
+      border-radius: 50%;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0.125em;
+      left: 0.125em;
+      width: 1.25em;
+      height: 1.25em;
+      transition:
+        background-color var(--ts1-trans-dur) var(--ts1-trans-timing),
+        transform var(--ts1-trans-dur) var(--ts1-trans-timing);
+    }
+
+    .pst-ts1 .switch__icon,
+    .pst-ts1 .switch__icon-part {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .pst-ts1 .switch__icon {
+      background-color: hsl(var(--ts1-hue), 10%, 90%);
+      border-radius: 50%;
+      overflow: hidden;
+      pointer-events: none;
+      top: 0.125em;
+      left: 0.125em;
+      width: 1.25em;
+      height: 1.25em;
+      transition: transform var(--ts1-trans-dur) var(--ts1-trans-timing);
+    }
+
+    .pst-ts1 .switch__icon-part {
+      transition:
+        box-shadow var(--ts1-trans-dur) var(--ts1-trans-timing),
+        transform var(--ts1-trans-dur) var(--ts1-trans-timing);
+    }
+
+    .pst-ts1 .switch__icon-part--1,
+    .pst-ts1 .switch__icon-part--2,
+    .pst-ts1 .switch__icon-part--3 {
+      border-radius: 50%;
+    }
+
+    .pst-ts1 .switch__icon-part--1 {
+      background-color: hsl(var(--ts1-hue), 10%, 90%);
+      top: calc(50% - 0.375em);
+      left: calc(50% - 0.375em);
+      width: 0.75em;
+      height: 0.75em;
+    }
+
+    .pst-ts1 .switch__icon-part--2 {
+      background-color: hsl(var(--ts1-hue), 10%, 10%);
+      top: calc(50% - 0.4375em);
+      left: calc(50% - 0.0625em);
+      width: 0.5em;
+      height: 0.5em;
+      transform: translate(-0.1875em, 0.1875em) scale(0.2);
+    }
+
+    .pst-ts1 .switch__icon-part--3 {
+      box-shadow: 0 0 0 0.625em hsl(var(--ts1-hue), 10%, 10%) inset;
+      width: 1.25em;
+      height: 1.25em;
+      transform: scale(0.25);
+    }
+
+    .pst-ts1 .switch__icon-part--3 ~ .switch__icon-part {
+      background-color: hsl(var(--ts1-hue), 10%, 10%);
+      border-radius: 0.0625em;
+      top: 50%;
+      left: 50%;
+      width: 0.125em;
+      height: 0.1875em;
+      transform-origin: 50% 0;
+    }
+
+    .pst-ts1 .switch__icon-part--4  { transform: translateX(-50%) rotate(0deg)   translateY(0.25em); }
+    .pst-ts1 .switch__icon-part--5  { transform: translateX(-50%) rotate(45deg)  translateY(0.25em); }
+    .pst-ts1 .switch__icon-part--6  { transform: translateX(-50%) rotate(90deg)  translateY(0.25em); }
+    .pst-ts1 .switch__icon-part--7  { transform: translateX(-50%) rotate(135deg) translateY(0.25em); }
+    .pst-ts1 .switch__icon-part--8  { transform: translateX(-50%) rotate(180deg) translateY(0.25em); }
+    .pst-ts1 .switch__icon-part--9  { transform: translateX(-50%) rotate(225deg) translateY(0.25em); }
+    .pst-ts1 .switch__icon-part--10 { transform: translateX(-50%) rotate(270deg) translateY(0.25em); }
+    .pst-ts1 .switch__icon-part--11 { transform: translateX(-50%) rotate(315deg) translateY(0.25em); }
+
+    .pst-ts1 .switch__sr {
+      overflow: hidden;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    /* Checked state */
+    .pst-ts1 .switch__input:checked {
+      background-color: hsl(var(--ts1-hue), 10%, 90%);
+    }
+    .pst-ts1 .switch__input:checked:before,
+    .pst-ts1 .switch__input:checked ~ .switch__icon {
+      transform: translateX(1.5em);
+    }
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--2 {
+      transform: translate(0, 0) scale(1);
+    }
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--3 {
+      box-shadow: 0 0 0 0.25em hsl(var(--ts1-hue), 10%, 10%) inset;
+      transform: scale(1);
+    }
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--4,
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--5,
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--6,
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--7,
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--8,
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--9,
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--10,
+    .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--11 {
+      transform: translateX(-50%) rotate(0) translateY(0.625em) scale(0);
+    }
   </style>
 </head>
 
@@ -125,10 +298,9 @@
         نمایش کامل عناصر تایپوگرافی، رنگ‌ها، جداول و فرم‌ها برای طراحی رابط کاربری فارسی
       </p>
 
-      <!-- Theme toggle switch -->
+      <!-- Theme toggle switch --
       <div class="theme-toggle-wrapper">
         <span class="theme-icon">
-          <!-- آیکون ماه -->
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
@@ -138,7 +310,6 @@
           <span class="slider"></span>
         </label>
         <span class="theme-icon">
-          <!-- آیکون خورشید -->
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -151,7 +322,29 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
         </span>
+      </div> -->
+
+      <!-- Theme Switch #1 (pst-ts1) -->
+      <div class="pst-ts1">
+        <label class="switch">
+          <input class="switch__input" type="checkbox" role="switch" id="theme-toggle" />
+          <span class="switch__icon">
+            <span class="switch__icon-part switch__icon-part--1"></span>
+            <span class="switch__icon-part switch__icon-part--2"></span>
+            <span class="switch__icon-part switch__icon-part--3"></span>
+            <span class="switch__icon-part switch__icon-part--4"></span>
+            <span class="switch__icon-part switch__icon-part--5"></span>
+            <span class="switch__icon-part switch__icon-part--6"></span>
+            <span class="switch__icon-part switch__icon-part--7"></span>
+            <span class="switch__icon-part switch__icon-part--8"></span>
+            <span class="switch__icon-part switch__icon-part--9"></span>
+            <span class="switch__icon-part switch__icon-part--10"></span>
+            <span class="switch__icon-part switch__icon-part--11"></span>
+          </span>
+          <span class="switch__sr">Dark Mode</span>
+        </label>
       </div>
+
     </header>
 
     <!-- ============================================================
