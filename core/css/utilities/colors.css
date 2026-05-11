@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Project:      Persian Standard Typography (PST) – Color Utilities
+   File:         colors.css
+   Version:      1.2.0
+   Description:  Text, background, and border color utility classes.
+                 Dynamic colors use semantic names; static colors use
+                 text-{color}, bg-{color}, border-{color}.
+                 All text-* classes now include fill & stroke for SVG icons.
+   Author:       Parsa Hafezalkotob
+   Last Updated: 2026-05-12
+   ========================================================================== */
+
+/* ==========================================================================
+   Dynamic (Theme‑Aware) Semantic Classes
+   ========================================================================== */
+.text-body {
+  color: var(--color-text) !important;
+  fill: var(--color-text) !important;
+  stroke: var(--color-text) !important;
+}
+.bg-body       { background-color: var(--color-text) !important; }
+.border-body   { border-color: var(--color-text) !important; }
+
+.text-muted {
+  color: var(--color-text-muted) !important;
+  fill: var(--color-text-muted) !important;
+  stroke: var(--color-text-muted) !important;
+}
+.bg-muted      { background-color: var(--color-text-muted) !important; }
+.border-muted  { border-color: var(--color-text-muted) !important; }
+
+.text-heading {
+  color: var(--color-heading) !important;
+  fill: var(--color-heading) !important;
+  stroke: var(--color-heading) !important;
+}
+.bg-heading    { background-color: var(--color-heading) !important; }
+.border-heading { border-color: var(--color-heading) !important; }
+
+.text-link {
+  color: var(--color-link) !important;
+  fill: var(--color-link) !important;
+  stroke: var(--color-link) !important;
+}
+.bg-link       { background-color: var(--color-link) !important; }
+.border-link   { border-color: var(--color-link) !important; }
+
+/* Additional dynamic text utilities (for SVG / edge cases) */
+.text-surface {
+  color: var(--color-surface) !important;
+  fill: var(--color-surface) !important;
+  stroke: var(--color-surface) !important;
+}
+.text-border {
+  color: var(--color-border) !important;
+  fill: var(--color-border) !important;
+  stroke: var(--color-border) !important;
+}
+.text-bg {
+  color: var(--color-bg) !important;
+  fill: var(--color-bg) !important;
+  stroke: var(--color-bg) !important;
+}
+.text-bg-subtle {
+  color: var(--color-bg-subtle) !important;
+  fill: var(--color-bg-subtle) !important;
+  stroke: var(--color-bg-subtle) !important;
+}
+
+/* Dynamic surface / border helpers */
+.bg-page           { background-color: var(--color-bg) !important; }
+.border-page       { border-color: var(--color-bg) !important; }
+.bg-subtle         { background-color: var(--color-bg-subtle) !important; }
+.border-subtle     { border-color: var(--color-bg-subtle) !important; }
+.bg-surface        { background-color: var(--color-surface) !important; }
+.border-surface    { border-color: var(--color-surface) !important; }
+.bg-surface-alt    { background-color: var(--color-surface-alt) !important; }
+.border-surface-alt { border-color: var(--color-surface-alt) !important; }
+.border-default    { border-color: var(--color-border) !important; }
+.border-strong     { border-color: var(--color-border-strong) !important; }
+
+/* ==========================================================================
+   Static: Brand Colors
+   ========================================================================== */
+.text-primary   { color: var(--brand-primary) !important;   fill: var(--brand-primary) !important;   stroke: var(--brand-primary) !important; }
+.bg-primary     { background-color: var(--brand-primary) !important; }
+.border-primary { border-color: var(--brand-primary) !important; }
+
+.text-secondary   { color: var(--brand-secondary) !important;   fill: var(--brand-secondary) !important;   stroke: var(--brand-secondary) !important; }
+.bg-secondary     { background-color: var(--brand-secondary) !important; }
+.border-secondary { border-color: var(--brand-secondary) !important; }
+
+.text-accent   { color: var(--brand-accent) !important;   fill: var(--brand-accent) !important;   stroke: var(--brand-accent) !important; }
+.bg-accent     { background-color: var(--brand-accent) !important; }
+.border-accent { border-color: var(--brand-accent) !important; }
+
+.text-extra   { color: var(--brand-extra) !important;   fill: var(--brand-extra) !important;   stroke: var(--brand-extra) !important; }
+.bg-extra     { background-color: var(--brand-extra) !important; }
+.border-extra { border-color: var(--brand-extra) !important; }
+
+/* ==========================================================================
+   Static: Status Colors
+   ========================================================================== */
+.text-success   { color: var(--status-success) !important;   fill: var(--status-success) !important;   stroke: var(--status-success) !important; }
+.bg-success     { background-color: var(--status-success) !important; }
+.border-success { border-color: var(--status-success) !important; }
+
+.text-warning   { color: var(--status-warning) !important;   fill: var(--status-warning) !important;   stroke: var(--status-warning) !important; }
+.bg-warning     { background-color: var(--status-warning) !important; }
+.border-warning { border-color: var(--status-warning) !important; }
+
+.text-danger   { color: var(--status-danger) !important;   fill: var(--status-danger) !important;   stroke: var(--status-danger) !important; }
+.bg-danger     { background-color: var(--status-danger) !important; }
+.border-danger { border-color: var(--status-danger) !important; }
+
+.text-info   { color: var(--status-info) !important;   fill: var(--status-info) !important;   stroke: var(--status-info) !important; }
+.bg-info     { background-color: var(--status-info) !important; }
+.border-info { border-color: var(--status-info) !important; }
+
+/* ==========================================================================
+   Static: General Utility Colors
+   ========================================================================== */
+.text-blue   { color: var(--blue) !important;   fill: var(--blue) !important;   stroke: var(--blue) !important; }
+.bg-blue     { background-color: var(--blue) !important; }
+.border-blue { border-color: var(--blue) !important; }
+
+.text-indigo   { color: var(--indigo) !important;   fill: var(--indigo) !important;   stroke: var(--indigo) !important; }
+.bg-indigo     { background-color: var(--indigo) !important; }
+.border-indigo { border-color: var(--indigo) !important; }
+
+.text-purple   { color: var(--purple) !important;   fill: var(--purple) !important;   stroke: var(--purple) !important; }
+.bg-purple     { background-color: var(--purple) !important; }
+.border-purple { border-color: var(--purple) !important; }
+
+.text-pink   { color: var(--pink) !important;   fill: var(--pink) !important;   stroke: var(--pink) !important; }
+.bg-pink     { background-color: var(--pink) !important; }
+.border-pink { border-color: var(--pink) !important; }
+
+.text-red   { color: var(--red) !important;   fill: var(--red) !important;   stroke: var(--red) !important; }
+.bg-red     { background-color: var(--red) !important; }
+.border-red { border-color: var(--red) !important; }
+
+.text-orange   { color: var(--orange) !important;   fill: var(--orange) !important;   stroke: var(--orange) !important; }
+.bg-orange     { background-color: var(--orange) !important; }
+.border-orange { border-color: var(--orange) !important; }
+
+.text-yellow   { color: var(--yellow) !important;   fill: var(--yellow) !important;   stroke: var(--yellow) !important; }
+.bg-yellow     { background-color: var(--yellow) !important; }
+.border-yellow { border-color: var(--yellow) !important; }
+
+.text-green   { color: var(--green) !important;   fill: var(--green) !important;   stroke: var(--green) !important; }
+.bg-green     { background-color: var(--green) !important; }
+.border-green { border-color: var(--green) !important; }
+
+.text-teal   { color: var(--teal) !important;   fill: var(--teal) !important;   stroke: var(--teal) !important; }
+.bg-teal     { background-color: var(--teal) !important; }
+.border-teal { border-color: var(--teal) !important; }
+
+.text-cyan   { color: var(--cyan) !important;   fill: var(--cyan) !important;   stroke: var(--cyan) !important; }
+.bg-cyan     { background-color: var(--cyan) !important; }
+.border-cyan { border-color: var(--cyan) !important; }
+
+/* ==========================================================================
+   Static: Grayscale
+   ========================================================================== */
+.text-white   { color: var(--white) !important;   fill: var(--white) !important;   stroke: var(--white) !important; }
+.bg-white     { background-color: var(--white) !important; }
+.border-white { border-color: var(--white) !important; }
+
+.text-black   { color: var(--black) !important;   fill: var(--black) !important;   stroke: var(--black) !important; }
+.bg-black     { background-color: var(--black) !important; }
+.border-black { border-color: var(--black) !important; }
+
+.text-gray-50   { color: var(--gray-50) !important;   fill: var(--gray-50) !important;   stroke: var(--gray-50) !important; }
+.bg-gray-50     { background-color: var(--gray-50) !important; }
+.border-gray-50 { border-color: var(--gray-50) !important; }
+
+.text-gray-100   { color: var(--gray-100) !important;   fill: var(--gray-100) !important;   stroke: var(--gray-100) !important; }
+.bg-gray-100     { background-color: var(--gray-100) !important; }
+.border-gray-100 { border-color: var(--gray-100) !important; }
+
+.text-gray-200   { color: var(--gray-200) !important;   fill: var(--gray-200) !important;   stroke: var(--gray-200) !important; }
+.bg-gray-200     { background-color: var(--gray-200) !important; }
+.border-gray-200 { border-color: var(--gray-200) !important; }
+
+.text-gray-300   { color: var(--gray-300) !important;   fill: var(--gray-300) !important;   stroke: var(--gray-300) !important; }
+.bg-gray-300     { background-color: var(--gray-300) !important; }
+.border-gray-300 { border-color: var(--gray-300) !important; }
+
+.text-gray-400   { color: var(--gray-400) !important;   fill: var(--gray-400) !important;   stroke: var(--gray-400) !important; }
+.bg-gray-400     { background-color: var(--gray-400) !important; }
+.border-gray-400 { border-color: var(--gray-400) !important; }
+
+.text-gray-500   { color: var(--gray-500) !important;   fill: var(--gray-500) !important;   stroke: var(--gray-500) !important; }
+.bg-gray-500     { background-color: var(--gray-500) !important; }
+.border-gray-500 { border-color: var(--gray-500) !important; }
+
+.text-gray-600   { color: var(--gray-600) !important;   fill: var(--gray-600) !important;   stroke: var(--gray-600) !important; }
+.bg-gray-600     { background-color: var(--gray-600) !important; }
+.border-gray-600 { border-color: var(--gray-600) !important; }
+
+.text-gray-700   { color: var(--gray-700) !important;   fill: var(--gray-700) !important;   stroke: var(--gray-700) !important; }
+.bg-gray-700     { background-color: var(--gray-700) !important; }
+.border-gray-700 { border-color: var(--gray-700) !important; }
+
+.text-gray-800   { color: var(--gray-800) !important;   fill: var(--gray-800) !important;   stroke: var(--gray-800) !important; }
+.bg-gray-800     { background-color: var(--gray-800) !important; }
+.border-gray-800 { border-color: var(--gray-800) !important; }
+
+.text-gray-900   { color: var(--gray-900) !important;   fill: var(--gray-900) !important;   stroke: var(--gray-900) !important; }
+.bg-gray-900     { background-color: var(--gray-900) !important; }
+.border-gray-900 { border-color: var(--gray-900) !important; }

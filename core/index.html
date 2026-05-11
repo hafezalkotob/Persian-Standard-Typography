@@ -114,11 +114,10 @@
     }
 
     /* ==========================================
-       Theme Switch – Style #1 (pst-ts1)
+      Theme Switch – Style #1 (pst-ts1)
     ========================================== */
     .pst-ts1 {
-      --ts1-scale: 1.5; /* Switch resize */
-      --ts1-hue: 223;
+      --ts1-scale: 1.5;            /* تغییر اندازهٔ سوئیچ */
       --ts1-trans-dur: 0.4s;
       --ts1-trans-timing: cubic-bezier(0.65, 0, 0.35, 1);
       display: flex;
@@ -143,9 +142,10 @@
       margin: 0 !important;
     }
 
+    /* بدنهٔ اصلی سوئیچ (روشن/تاریک) */
     .pst-ts1 .switch__input,
     .pst-ts1 .switch__input:before {
-      background-color: hsl(var(--ts1-hue), 10%, 10%);
+      background-color: var(--color-border);
     }
 
     .pst-ts1 .switch__input {
@@ -176,6 +176,7 @@
         transform var(--ts1-trans-dur) var(--ts1-trans-timing);
     }
 
+    /* آیکون خورشید/ماه */
     .pst-ts1 .switch__icon,
     .pst-ts1 .switch__icon-part {
       display: block;
@@ -185,7 +186,7 @@
     }
 
     .pst-ts1 .switch__icon {
-      background-color: hsl(var(--ts1-hue), 10%, 90%);
+      background-color: var(--color-bg);        /* پس‌زمینهٔ آیکون */
       border-radius: 50%;
       overflow: hidden;
       pointer-events: none;
@@ -208,16 +209,18 @@
       border-radius: 50%;
     }
 
+    /* مرکز آیکون خورشید */
     .pst-ts1 .switch__icon-part--1 {
-      background-color: hsl(var(--ts1-hue), 10%, 90%);
+      background-color: var(--color-bg);
       top: calc(50% - 0.375em);
       left: calc(50% - 0.375em);
       width: 0.75em;
       height: 0.75em;
     }
 
+    /* بخش تاریک ماه (هلال) */
     .pst-ts1 .switch__icon-part--2 {
-      background-color: hsl(var(--ts1-hue), 10%, 10%);
+      background-color: var(--color-text);
       top: calc(50% - 0.4375em);
       left: calc(50% - 0.0625em);
       width: 0.5em;
@@ -225,15 +228,17 @@
       transform: translate(-0.1875em, 0.1875em) scale(0.2);
     }
 
+    /* هالهٔ خورشید */
     .pst-ts1 .switch__icon-part--3 {
-      box-shadow: 0 0 0 0.625em hsl(var(--ts1-hue), 10%, 10%) inset;
+      box-shadow: 0 0 0 0.625em var(--color-text) inset;
       width: 1.25em;
       height: 1.25em;
       transform: scale(0.25);
     }
 
+    /* اشعه‌های خورشید */
     .pst-ts1 .switch__icon-part--3 ~ .switch__icon-part {
-      background-color: hsl(var(--ts1-hue), 10%, 10%);
+      background-color: var(--color-text);
       border-radius: 0.0625em;
       top: 50%;
       left: 50%;
@@ -260,21 +265,26 @@
       white-space: nowrap;
     }
 
-    /* Checked state */
+    /* ========== وضعیت فعال (Checked) ========== */
     .pst-ts1 .switch__input:checked {
-      background-color: hsl(var(--ts1-hue), 10%, 90%);
+      background-color: var(--color-bg);        /* پس‌زمینه روشن برای حالت فعال */
     }
+
     .pst-ts1 .switch__input:checked:before,
     .pst-ts1 .switch__input:checked ~ .switch__icon {
       transform: translateX(1.5em);
     }
+
     .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--2 {
       transform: translate(0, 0) scale(1);
     }
+
     .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--3 {
-      box-shadow: 0 0 0 0.25em hsl(var(--ts1-hue), 10%, 10%) inset;
+      box-shadow: 0 0 0 0.25em var(--color-text) inset;
       transform: scale(1);
     }
+
+    /* محو شدن اشعه‌ها در حالت فعال */
     .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--4,
     .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--5,
     .pst-ts1 .switch__input:checked ~ .switch__icon .switch__icon-part--6,
@@ -841,6 +851,175 @@
           </p>
         </fieldset>
       </form>
+    </section>
+
+    <!-- ======================
+         Color Palette Reference
+    ======================= -->
+    <section class="section">
+      <div class="section-label">Color Palette Reference</div>
+
+      <style>
+        .color-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          gap: 0.75rem;
+        }
+        .color-swatch {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 0.6rem;
+          border-radius: 10px;
+          background: var(--color-bg);
+          border: 1px solid var(--color-border);
+        }
+        .color-swatch .swatch {
+          width: 100%;
+          height: 50px;
+          border-radius: 6px;
+          margin-bottom: 0.3rem;
+          border: 1px solid rgba(0,0,0,0.08);
+        }
+        .color-swatch .name {
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--color-text);
+        }
+        .color-swatch .var-name {
+          font-size: 0.6rem;
+          color: var(--color-text-muted);
+          direction: ltr;
+        }
+        .color-swatch .class-list {
+          font-size: 0.55rem;
+          color: var(--color-text-muted);
+          margin-top: 0.2rem;
+          line-height: 1.3;
+          direction: ltr;
+        }
+        .color-swatch .tag {
+          display: inline-block;
+          font-size: 0.5rem;
+          padding: 0.1em 0.4em;
+          border-radius: 999px;
+          background: var(--color-bg-subtle);
+          color: var(--color-text-muted);
+          margin-bottom: 0.2rem;
+        }
+      </style>
+
+      <!-- ============ Dynamic Colors (Theme-Aware) ============ -->
+      <h4 style="margin:1rem 0 0.5rem">🎨 Dynamic (Theme‑Aware)</h4>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-text)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Body Text</span>
+          <span class="var-name">--color-text</span>
+          <span class="class-list">.text-body<br>.bg-body<br>.border-body</span>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-text-muted)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Muted Text</span>
+          <span class="var-name">--color-text-muted</span>
+          <span class="class-list">.text-muted<br>.bg-muted<br>.border-muted</span>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-heading)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Heading</span>
+          <span class="var-name">--color-heading</span>
+          <span class="class-list">.text-heading<br>.bg-heading<br>.border-heading</span>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-link)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Link</span>
+          <span class="var-name">--color-link</span>
+          <span class="class-list">.text-link<br>.bg-link<br>.border-link</span>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-bg)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Page Background</span>
+          <span class="var-name">--color-bg</span>
+          <span class="class-list">.bg-page<br>.border-page</span>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-bg-subtle)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Subtle Bg</span>
+          <span class="var-name">--color-bg-subtle</span>
+          <span class="class-list">.bg-subtle<br>.border-subtle</span>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-surface)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Surface</span>
+          <span class="var-name">--color-surface</span>
+          <span class="class-list">.bg-surface<br>.border-surface</span>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background:var(--color-border)"></div>
+          <span class="tag">Dynamic</span>
+          <span class="name">Border</span>
+          <span class="var-name">--color-border</span>
+          <span class="class-list">.border-default</span>
+        </div>
+      </div>
+
+      <!-- ============ Static Brand Colors ============ -->
+      <h4 style="margin:1.5rem 0 0.5rem">🎯 Brand Colors</h4>
+      <div class="color-grid">
+        <div class="color-swatch"><div class="swatch" style="background:var(--brand-primary)"></div><span class="name">Primary</span><span class="var-name">--brand-primary</span><span class="class-list">.text-primary<br>.bg-primary<br>.border-primary</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--brand-secondary)"></div><span class="name">Secondary</span><span class="var-name">--brand-secondary</span><span class="class-list">.text-secondary<br>.bg-secondary<br>.border-secondary</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--brand-accent)"></div><span class="name">Accent</span><span class="var-name">--brand-accent</span><span class="class-list">.text-accent<br>.bg-accent<br>.border-accent</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--brand-extra)"></div><span class="name">Extra</span><span class="var-name">--brand-extra</span><span class="class-list">.text-extra<br>.bg-extra<br>.border-extra</span></div>
+      </div>
+
+      <!-- ============ Static Status Colors ============ -->
+      <h4 style="margin:1.5rem 0 0.5rem">🚦 Status Colors</h4>
+      <div class="color-grid">
+        <div class="color-swatch"><div class="swatch" style="background:var(--status-success)"></div><span class="name">Success</span><span class="var-name">--status-success</span><span class="class-list">.text-success<br>.bg-success<br>.border-success</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--status-warning)"></div><span class="name">Warning</span><span class="var-name">--status-warning</span><span class="class-list">.text-warning<br>.bg-warning<br>.border-warning</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--status-danger)"></div><span class="name">Danger</span><span class="var-name">--status-danger</span><span class="class-list">.text-danger<br>.bg-danger<br>.border-danger</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--status-info)"></div><span class="name">Info</span><span class="var-name">--status-info</span><span class="class-list">.text-info<br>.bg-info<br>.border-info</span></div>
+      </div>
+
+      <!-- ============ Static General Colors ============ -->
+      <h4 style="margin:1.5rem 0 0.5rem">🌈 General Colors</h4>
+      <div class="color-grid">
+        <div class="color-swatch"><div class="swatch" style="background:var(--blue)"></div><span class="name">Blue</span><span class="var-name">--blue</span><span class="class-list">.text-blue<br>.bg-blue<br>.border-blue</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--indigo)"></div><span class="name">Indigo</span><span class="var-name">--indigo</span><span class="class-list">.text-indigo<br>.bg-indigo<br>.border-indigo</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--purple)"></div><span class="name">Purple</span><span class="var-name">--purple</span><span class="class-list">.text-purple<br>.bg-purple<br>.border-purple</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--pink)"></div><span class="name">Pink</span><span class="var-name">--pink</span><span class="class-list">.text-pink<br>.bg-pink<br>.border-pink</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--red)"></div><span class="name">Red</span><span class="var-name">--red</span><span class="class-list">.text-red<br>.bg-red<br>.border-red</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--orange)"></div><span class="name">Orange</span><span class="var-name">--orange</span><span class="class-list">.text-orange<br>.bg-orange<br>.border-orange</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--yellow)"></div><span class="name">Yellow</span><span class="var-name">--yellow</span><span class="class-list">.text-yellow<br>.bg-yellow<br>.border-yellow</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--green)"></div><span class="name">Green</span><span class="var-name">--green</span><span class="class-list">.text-green<br>.bg-green<br>.border-green</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--teal)"></div><span class="name">Teal</span><span class="var-name">--teal</span><span class="class-list">.text-teal<br>.bg-teal<br>.border-teal</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--cyan)"></div><span class="name">Cyan</span><span class="var-name">--cyan</span><span class="class-list">.text-cyan<br>.bg-cyan<br>.border-cyan</span></div>
+      </div>
+
+      <!-- ============ Static Grayscale ============ -->
+      <h4 style="margin:1.5rem 0 0.5rem">⬛ Grayscale</h4>
+      <div class="color-grid">
+        <div class="color-swatch"><div class="swatch" style="background:var(--white)"></div><span class="name">White</span><span class="var-name">--white</span><span class="class-list">.text-white<br>.bg-white<br>.border-white</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-50)"></div><span class="name">Gray 50</span><span class="var-name">--gray-50</span><span class="class-list">.text-gray-50<br>.bg-gray-50<br>.border-gray-50</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-100)"></div><span class="name">Gray 100</span><span class="var-name">--gray-100</span><span class="class-list">.text-gray-100<br>.bg-gray-100<br>.border-gray-100</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-200)"></div><span class="name">Gray 200</span><span class="var-name">--gray-200</span><span class="class-list">.text-gray-200<br>.bg-gray-200<br>.border-gray-200</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-300)"></div><span class="name">Gray 300</span><span class="var-name">--gray-300</span><span class="class-list">.text-gray-300<br>.bg-gray-300<br>.border-gray-300</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-400)"></div><span class="name">Gray 400</span><span class="var-name">--gray-400</span><span class="class-list">.text-gray-400<br>.bg-gray-400<br>.border-gray-400</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-500)"></div><span class="name">Gray 500</span><span class="var-name">--gray-500</span><span class="class-list">.text-gray-500<br>.bg-gray-500<br>.border-gray-500</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-600)"></div><span class="name">Gray 600</span><span class="var-name">--gray-600</span><span class="class-list">.text-gray-600<br>.bg-gray-600<br>.border-gray-600</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-700)"></div><span class="name">Gray 700</span><span class="var-name">--gray-700</span><span class="class-list">.text-gray-700<br>.bg-gray-700<br>.border-gray-700</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-800)"></div><span class="name">Gray 800</span><span class="var-name">--gray-800</span><span class="class-list">.text-gray-800<br>.bg-gray-800<br>.border-gray-800</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--gray-900)"></div><span class="name">Gray 900</span><span class="var-name">--gray-900</span><span class="class-list">.text-gray-900<br>.bg-gray-900<br>.border-gray-900</span></div>
+        <div class="color-swatch"><div class="swatch" style="background:var(--black)"></div><span class="name">Black</span><span class="var-name">--black</span><span class="class-list">.text-black<br>.bg-black<br>.border-black</span></div>
+      </div>
     </section>
 
   </main>

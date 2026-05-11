@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
-// ======================== تنظیمات ========================
+// ======================== Settings ========================
 const CDN_BASE_URL = 'https://cdn.cdoc.ir/pst';      // CDN root address (without / at the end)
 const ROOT_DIR = __dirname;                          // PST project root folder
 const DIST_DIR = path.join(ROOT_DIR, 'dist', 'cdn'); // Output in dist/cdn
-// ==========================================================
+// =========================================================
 
 function copyFile(src, dest, transform = null) {
     const destDir = path.dirname(dest);
@@ -42,6 +42,8 @@ function copyDirectoryRecursive(src, dest, fileCallback) {
 function processCSS() {
     const cssSrcDir = path.join(ROOT_DIR, 'css');
     const cssDestDir = path.join(DIST_DIR, 'css');
+
+    // 1. Copy individual base & component files
     const cssFiles = [
         'base/reset.css', 'base/ui-base.css', 'base/tokens.css',
         'base/typography.css', 'components/table.css', 'components/forms.css'
@@ -53,6 +55,7 @@ function processCSS() {
         else console.warn(`⚠️ ${file} Not found`);
     });
 
+    // 2. Copy main.css and remove font imports (fonts are loaded separately in project-custom.css)
     const mainSrc = path.join(cssSrcDir, 'main.css');
     const mainDest = path.join(cssDestDir, 'main.css');
     if (fs.existsSync(mainSrc)) {
@@ -61,6 +64,15 @@ function processCSS() {
                 .filter(line => !(line.includes('@import url') && line.includes('../fonts/')))
                 .join('\n')
         );
+    }
+
+    // 3. Copy the whole utilities folder
+    const utilitiesSrc = path.join(cssSrcDir, 'utilities');
+    const utilitiesDest = path.join(cssDestDir, 'utilities');
+    if (fs.existsSync(utilitiesSrc)) {
+        copyDirectoryRecursive(utilitiesSrc, utilitiesDest, null);
+    } else {
+        console.warn('⚠️ utilities folder not found');
     }
 }
 
